@@ -9,7 +9,7 @@ class App(tk.Tk):
            self.w, self.h = self.winfo_screenwidth(), self.winfo_screenheight()
            self.title("Nouvel onglet")
            self.geometry('1920x1080')
-           self.iconbitmap('./image/téléchargement (9).ico')
+           #self.iconbitmap('./image/téléchargement (9).ico')
            self.Widgets()
 
 
@@ -60,7 +60,7 @@ class Tripadvisor(tk.Toplevel):
 
        def __init__(self, parent):
            super().__init__(parent)
-           self.image = Image.open("./image/Fond.png")
+           #self.image = Image.open("./image/Fond.png")
            self.geometry('1920x1080')
            self.w, self.h = self.winfo_screenwidth(), self.winfo_screenheight()
 
@@ -75,7 +75,7 @@ class Tripadvisor(tk.Toplevel):
            self.can.create_image(0, 0, anchor='nw', image=self.photo)
            self.can.pack(fill='both', expand=1)
 
-           self.iconbitmap('./image/TA_brand_logo.ico')
+           #self.iconbitmap('./image/TA_brand_logo.ico')
            self.title("Page Tripadvisor")
            self.page()
 
@@ -99,7 +99,7 @@ class Tripadvisor(tk.Toplevel):
            tk.Label(self, height=2, width=27, text=self.select).place(x=1230, y=700)
 
        def f(self):
-           self.image = Image.open("./image/Capture5.PNG")
+           #self.image = Image.open("./image/Capture5.PNG")
 
            self.render = ImageTk.PhotoImage(self.image)
            self.img = tk.Label(self, image=self.render)
