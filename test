@@ -1,0 +1,53 @@
+import tkinter as tk
+
+from tkinter import *
+
+import lib.packages as pkg
+
+new_screen = pkg.User()
+
+class App(tk.Tk):
+
+       def __init__(self):
+           super().__init__()
+           self.w, self.h = self.winfo_screenwidth(), self.winfo_screenheight()
+           self.title("Gestionnaire Automobile")
+           self.geometry('1920x1080')
+           #self.iconbitmap('./image/téléchargement (9).ico')
+           self.Widgets()
+
+
+
+       def Widgets(self):
+           self.banner = tk.Frame(self, bg="black")
+           self.banner.place(relwidth=0.25,relheight=1)
+
+           self.user = tk.Button(self.banner, text='USER').place(relx=0.3, rely=0.2, relheight=0.05, relwidth=0.4)
+
+           self.reservation = tk.Button(self.banner, text='RESERVATION').place(relx=0.3, rely=0.3, relheight=0.05,
+                                                                               relwidth=0.4)
+
+           self.annulation = tk.Button(self.banner, text='ANNULATION').place(relx=0.3, rely=0.4, relheight=0.05,
+                                                                             relwidth=0.4)
+
+           self.admin = tk.Button(self.banner, command=self.start_onglet , text='ADMIN').place(relx=0.3, rely=0.55, relheight=0.05,
+                                                                             relwidth=0.4)
+
+           self.listeAdmin = tk.Listbox(self.banner, height=10, width=10)
+           self.listeAdmin.place(relx=0.3, rely=0.60, relheight=0.07,relwidth=0.4)
+
+           for element in ["Ajout Véhicule", "Suppression Véhicule", "Suppréssion Utilisateur"]:
+               self.listeAdmin.insert(END, element)
+
+       def start_onglet(self):
+           return None
+
+
+       def open_UserPage(self):
+           self.load = new_screen.page
+           self.load.wait_window()
+
+
+if __name__ == '__main__':
+       app = App()
+       app.mainloop()
