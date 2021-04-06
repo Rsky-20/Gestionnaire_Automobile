@@ -137,7 +137,6 @@ def AjoutVehi_Page(master):
     app.title("Ajout Véhicle")
 
 
-
 def SupVehi_Page(master):
     """
     [Description]

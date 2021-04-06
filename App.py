@@ -32,9 +32,10 @@ from tkinter import *
 from tkinter.ttk import Combobox
 import lib.packages as pkg
 
+
 # -----------------------------------------------Class and process-----------------------------------------------------#
 
-class MainApp():
+class MainApp:
     """
     [description]
     MainApp est la class permettant de générer, charger et instancier la base du programme de gestion. Cette class
@@ -56,6 +57,9 @@ class MainApp():
 
     def Widgets(self):
         """
+        [description]
+        Function contenant tout les élément de la page principale du programme. Cette fonction rassemble tout les
+        boutons et object d'interraction.
 
         :return:
         """
@@ -86,19 +90,18 @@ class MainApp():
         self.banner = tk.Frame(self.root, bg="#CFC7C5")
         self.banner.place(relwidth=0.25, relheight=1)
 
-        self.user = tk.Button(self.banner, text='USER', command=lambda: pkg.User_Page(self.root)).place(relx=0.3,
-                                                                                                        rely=0.2,
-                                                                                                        relheight=0.05,
-                                                                                                        relwidth=0.4)
-        self.reservation = tk.Button(self.banner, text='RESERVATION', command=lambda: pkg.Reserv_Page(self.root)).place(
-            relx=0.3, rely=0.3, relheight=0.05,
-            relwidth=0.4)
-        self.annulation = tk.Button(self.banner, text='ANNULATION', command=lambda: pkg.Annul_Page(self.root)).place(
+        self.user = tk.Button(self.banner, text='USER',
+                              command=lambda: pkg.User_Page(self.root)).place(relx=0.3,
+                                                                              rely=0.2, relheight=0.05, relwidth=0.4)
+        self.reservation = tk.Button(self.banner, text='RESERVATION',
+                                     command=lambda: pkg.Reserv_Page(self.root)).place(relx=0.3, rely=0.3,
+                                                                                       relheight=0.05, relwidth=0.4)
+        self.annulation = tk.Button(self.banner, text='ANNULATION',
+                                    command=lambda: pkg.Annul_Page(self.root)).place(
             relx=0.3, rely=0.4, relheight=0.05,
             relwidth=0.4)
-        self.admin = tk.Button(self.banner, text='ADMIN', command=self.admin).place(relx=0.3, rely=0.55,
-                                                                                    relheight=0.05,
-                                                                                    relwidth=0.4)
+        self.admin = tk.Button(self.banner, text='ADMIN',
+                               command=self.admin).place(relx=0.3, rely=0.55, relheight=0.05, relwidth=0.4)
 
         self.listeAdmin = ["", "Ajout Véhicule", "Suppression Véhicule", "Suppréssion Utilisateur"]
         self.listeCombo1 = Combobox(self.banner, height=200, width=27, values=self.listeAdmin)
@@ -110,7 +113,6 @@ class MainApp():
         espace_image = Canvas(self.root, bg='blue')
         espace_image.place(rely=0.0, relx=0.25, relwidth=0.75, relheight=1, )
         espace_image.create_image(600, 550, image=self.photo)
-
 
     def admin(self):
         """
@@ -136,5 +138,7 @@ class MainApp():
 
 
 if __name__ == '__main__':
+    print(__doc__)
+
     # Run the program
     app = MainApp()
