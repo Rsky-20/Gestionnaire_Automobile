@@ -161,7 +161,7 @@ def ajouter_client(path, nom, prenom, age, num_permis):
     """
     dfc = pa.read_json(path)
 
-    dfc.loc[dfc.shape[0]] = ['test nom', 'test prenom', 42, 12345, -1, 0]
+    dfc.loc[dfc.shape[0]] = [nom, prenom, age, num_permis, -1, 0]
     enregistrer_json(dfc, path)
 
     enregistrer_json(dfc, path)
@@ -198,4 +198,15 @@ def changer_tarif(path, gamme, t, prix, assur, caut):
 
     enregistrer_json(dft, path)
 
-print('12-02-2013'.split('-'))
+# my_dict = {"nom": "G", "prenom": "J", "age": 26, "np": 10000, "dd": "13-04-2021", "df": "15-04-2021", "id": 2, "prix": 2048}
+def louer(dfv, dfc, data):
+    #On renseigne les dates de debut et de fin de location dans la dataframe dfv
+    mask = dfv["id"] == data["id"]  #on selectionne le vehicule d'id "id"
+    dfv.loc[mask, ["date_debut", "date_fin"]] = [data["dd"], data["df"]]
+
+    #On verifie si le client existe
+    mask = dfc["num_permis"] == data["np"]
+    if dfc[mask].empty: #si le client n'est pas enregistre, on l'ajoute
+        dfc.loc[dfc.shape[0]] = [data["nom"], data["prenom"], data["age"], data["np"], data["id"], data["prix"]]
+    else:   #si le client est enregistre
+        dfc.loc[mask, ["age", "id_vehicule", "prix_location"]] = [data["age"], data["id"], data["prix"]]
