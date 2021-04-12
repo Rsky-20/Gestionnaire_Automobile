@@ -30,7 +30,13 @@ Licence: MIT
 import tkinter as tk
 from tkinter import *
 from tkinter.ttk import Combobox
-import lib.packages as pkg
+import lib.AboutPage as AbP
+import lib.AjoutVehiPage as AVP
+import lib.AnnulPage as AnP
+import lib.ReservPage as RP
+import lib.SupUserPage as SUP
+import lib.SupVehiPage as SVP
+import lib.UserPage as UP
 
 
 # -----------------------------------------------Class and process-----------------------------------------------------#
@@ -82,7 +88,7 @@ class MainApp:
         menubar.add_cascade(label="Editer", menu=menu2)
 
         menu3 = Menu(menubar, tearoff=0)
-        menu3.add_command(label="A propos", command=lambda: pkg.About_Page(self.root))
+        menu3.add_command(label="A propos", command=lambda: AbP.About_Page(self.root))
         menubar.add_cascade(label="Aide", menu=menu3)
 
         self.root.config(menu=menubar)
@@ -91,13 +97,13 @@ class MainApp:
         self.banner.place(relwidth=0.25, relheight=1)
 
         self.user = tk.Button(self.banner, text='USER',
-                              command=lambda: pkg.User_Page(self.root)).place(relx=0.3,
+                              command=lambda: UP.User_Page(self.root)).place(relx=0.3,
                                                                               rely=0.2, relheight=0.05, relwidth=0.4)
         self.reservation = tk.Button(self.banner, text='RESERVATION',
-                                     command=lambda: pkg.Reserv_Page(self.root)).place(relx=0.3, rely=0.3,
+                                     command=lambda: RP.Reserv_Page(self.root)).place(relx=0.3, rely=0.3,
                                                                                        relheight=0.05, relwidth=0.4)
         self.annulation = tk.Button(self.banner, text='ANNULATION',
-                                    command=lambda: pkg.Annul_Page(self.root)).place(
+                                    command=lambda: AnP.Annul_Page(self.root)).place(
             relx=0.3, rely=0.4, relheight=0.05,
             relwidth=0.4)
         self.admin = tk.Button(self.banner, text='ADMIN',
@@ -127,11 +133,11 @@ class MainApp:
         print("Vous avez sélectionné : '", self.select, "'")
 
         if self.select == "Ajout Véhicule":
-            pkg.AjoutVehi_Page(self.root)
+            AVP.AjoutVehi_Page(self.root)
         elif self.select == "Suppression Véhicule":
-            pkg.SupVehi_Page(self.root)
+            SVP.SupVehi_Page(self.root)
         elif self.select == "Suppréssion Utilisateur":
-            pkg.SupUser_Page(self.root)
+            SUP.SupUser_Page(self.root)
 
 
 # -------------------------------------------Run & Start server program----------------------------------------------- #
