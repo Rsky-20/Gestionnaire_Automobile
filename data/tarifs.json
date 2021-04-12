@@ -1,0 +1,72 @@
+[
+  {
+    "type": "T",
+    "gamme": "SUV",
+    "prix": 50,
+    "assurance": 2,
+    "caution": 1200
+  },
+  {
+    "type": "T",
+    "gamme": "BERLINE",
+    "prix": 40,
+    "assurance": 1,
+    "caution": 1200
+  },
+  {
+    "type": "T",
+    "gamme": "MONOSPACE",
+    "prix": 60,
+    "assurance": 3,
+    "caution": 1200
+  },
+  {
+    "type": "T",
+    "gamme": "SPORTIVE",
+    "prix": 150,
+    "assurance": 5,
+    "caution": 4000
+  },
+  {
+    "type": "T",
+    "gamme": "ELECTRIQUE",
+    "prix": 30,
+    "assurance": 2,
+    "caution": 1000
+  },
+  {
+    "type": "U",
+    "gamme": "BENNE",
+    "prix": 45,
+    "assurance": 3,
+    "caution": 1200
+  },
+  {
+    "type": "U",
+    "gamme": "6 A 10",
+    "prix": 20,
+    "assurance": 1,
+    "caution": 1000
+  },
+  {
+    "type": "U",
+    "gamme": "3 A 5",
+    "prix": 20,
+    "assurance": 1,
+    "caution": 800
+  },
+  {
+    "type": "U",
+    "gamme": "20 A 25",
+    "prix": 50,
+    "assurance": 2,
+    "caution": 1800
+  },
+  {
+    "type": "U",
+    "gamme": "11 A 15",
+    "prix": 35,
+    "assurance": 1,
+    "caution": 1000
+  }
+]
