@@ -121,12 +121,8 @@ def ajouter_vehicule(path, t, mark, mod, carb, gam, km):
 
     id = dfv['id'][len(dfv)-1] + 1
 
-    col = ["id", "type", "marque", "modèle", "carburant", "gamme", "kilometrage", "date_debut", "date fin"]
-    data = [id, t, mark, mod, carb, gam, km, "", ""]
-    df = pa.DataFrame([data], columns=col)
-    df_vehicules = dfv.append(df)
-
-    enregistrer_json(df_vehicules, path)
+    dfv.loc[dfv.shape[0]] = [id, t, mark, mod, carb, km, gam, '', '']
+    enregistrer_json(dfv, path)
 
 def retirer_vehicule(path, id):
     """
@@ -141,15 +137,16 @@ def retirer_vehicule(path, id):
     mask = dfv['id'] != id
     enregistrer_json(dfv[mask], path)
 
-def export_bdd(df, path):
+def export_bdd(path_json, path_csv):
     """
-    exporte un dataframe sous format csv
+    exporte une base de donnees json sous format csv
 
     in :
-        df : dataframe à exporter
+        path_json : adresse de la base de donnees a exporter
         path : chemin où sauvegarder le fichier
     """
-    df.to_csv(path, sep=';')
+    df = pa.read_json(path_json)
+    df.to_csv(path_csv, sep=';')
 
 def ajouter_client(path, nom, prenom, age, num_permis):
     """
@@ -164,13 +161,10 @@ def ajouter_client(path, nom, prenom, age, num_permis):
     """
     dfc = pa.read_json(path)
 
-    col = ["nom", "prenom", "age", "num_permis", "id_vehicule", "prix_location"]
-    data = [nom, prenom, age, num_permis, -1, 0]
+    dfc.loc[dfc.shape[0]] = ['test nom', 'test prenom', 42, 12345, -1, 0]
+    enregistrer_json(dfc, path)
 
-    df = pa.DataFrame([data], columns=col)
-    df_clients = dfc.append(df)
-
-    enregistrer_json(df_clients, path)
+    enregistrer_json(dfc, path)
 
 def retirer_client(path, num_permis):
     """
@@ -185,7 +179,7 @@ def retirer_client(path, num_permis):
     mask = dfc['num_permis'] != num_permis
     enregistrer_json(dfc[mask],path)
 
-def changer_tarif(path, gamme, prix, assur, caut):
+def changer_tarif(path, gamme, t, prix, assur, caut):
     """
     change le tarif d'une gamme de véhicules
 
@@ -198,7 +192,10 @@ def changer_tarif(path, gamme, prix, assur, caut):
     """
     dft = pa.read_json(path)
 
-    mask = dft['gamme']==gamme
+    mask = (dft.gamme==gamme) & (dft.type==t)
+
     dft.loc[mask, ['prix', 'assurance', 'caution']] = [prix, assur, caut]
 
     enregistrer_json(dft, path)
+
+print('12-02-2013'.split('-'))
