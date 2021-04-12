@@ -27,9 +27,15 @@ def User_Page(master):
     tk.Entry(app, width=14, textvariable=varPrenom).place(relx=0.06, rely=0.17, relheight=0.05, relwidth=0.18)
 
     app.Age = tk.LabelFrame(app, text="Age")
-    app.Age.place(relx=0.05, rely=0.245, relheight=0.09, relwidth=0.2)
-    varAge = tk.StringVar()
-    tk.Entry(app, width=14, textvariable=varAge).place(relx=0.06, rely=0.27, relheight=0.05, relwidth=0.18)
+    app.Age.place(relx=0.05, rely=0.245, relheight=0.09, relwidth=0.5)
+
+    varAge = tk.DoubleVar()
+    tk.Scale(app.Age, orient='horizontal', from_=18, to=150,
+          resolution=1, variable=varAge).place(relx=0, rely=0, relheight=1, relwidth=1)
+
+    print(str(varAge.get()))
+
+    #tk.Entry(app, width=14, textvariable=varAge)
 
     app.NumPerm = tk.LabelFrame(app, text="Numero de permis")
     app.NumPerm.place(relx=0.05, rely=0.345, relheight=0.09, relwidth=0.2)
@@ -37,11 +43,11 @@ def User_Page(master):
     tk.Entry(app, width=14, textvariable=varNumPerm).place(relx=0.06, rely=0.37, relheight=0.05, relwidth=0.18)
 
     app.AdressMail = tk.LabelFrame(app, text="Adresse Mail")
-    app.AdressMail.place(relx=0.05, rely=0.445, relheight=0.09, relwidth=0.2)
+    app.AdressMail.place(relx=0.35, rely=0.045, relheight=0.09, relwidth=0.2)
     varAdressMail = tk.StringVar()
-    tk.Entry(app, width=14, textvariable=varAdressMail).place(relx=0.06, rely=0.47, relheight=0.05, relwidth=0.18)
+    tk.Entry(app, width=14, textvariable=varAdressMail).place(relx=0.36, rely=0.07, relheight=0.05, relwidth=0.18)
 
     app.Tel = tk.LabelFrame(app, text="Télephone")
-    app.Tel.place(relx=0.05, rely=0.545, relheight=0.09, relwidth=0.2)
+    app.Tel.place(relx=0.35, rely=0.145, relheight=0.09, relwidth=0.2)
     varTel = tk.StringVar()
-    tk.Entry(app, width=14, textvariable=varTel).place(relx=0.06, rely=0.57, relheight=0.05, relwidth=0.18)
+    tk.Entry(app, width=14, textvariable=varTel).place(relx=0.36, rely=0.17, relheight=0.05, relwidth=0.18)

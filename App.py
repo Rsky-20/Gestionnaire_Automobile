@@ -59,6 +59,11 @@ class MainApp:
         # self.iconbitmap('./images/téléchargement (9).ico')
         self.Widgets()
 
+        self.photo = PhotoImage(file='./images/Service_img.gif')
+        espace_image = Canvas(self.root, bg='blue')
+        espace_image.place(rely=0.0, relx=0.25, relwidth=0.75, relheight=1, )
+        espace_image.create_image(600, 550, image=self.photo)
+
         self.root.mainloop()
 
     def Widgets(self):
@@ -115,10 +120,7 @@ class MainApp:
         self.listeCombo1.place(relx=0.3, rely=0.6, relheight=0.05, relwidth=0.4)
         self.listeCombo1.bind("<<ComboboxSelected>>", self.admin)
 
-        self.photo = PhotoImage(file='./images/Service_img.gif')
-        espace_image = Canvas(self.root, bg='blue')
-        espace_image.place(rely=0.0, relx=0.25, relwidth=0.75, relheight=1, )
-        espace_image.create_image(600, 550, image=self.photo)
+
 
     def admin(self):
         """
