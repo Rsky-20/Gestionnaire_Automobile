@@ -30,6 +30,7 @@ Licence: MIT
 import tkinter as tk
 from tkinter import *
 from tkinter.ttk import Combobox
+from PIL import Image
 import lib.AboutPage as AbP
 import lib.AjoutVehiPage as AVP
 import lib.AnnulPage as AnP
@@ -62,7 +63,7 @@ class MainApp:
         self.photo = PhotoImage(file='./images/Service_img.gif')
         espace_image = Canvas(self.root, bg='blue')
         espace_image.place(rely=0.0, relx=0.25, relwidth=0.75, relheight=1, )
-        espace_image.create_image(600, 550, image=self.photo)
+        espace_image.create_image(600, 550, image=self.photo) #600, 550,
 
         self.root.mainloop()
 

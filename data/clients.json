@@ -40,10 +40,18 @@
     "prix_location": 0
   },
   {
-    "nom": "Vaudry",
-    "prenom": "Pierre",
-    "age": 18.0,
-    "num_permis": "1927364",
+    "nom": "Pierre",
+    "prenom": "Vaudry",
+    "age": 20.0,
+    "num_permis": 108374,
+    "id_vehicule": -1,
+    "prix_location": 0
+  },
+  {
+    "nom": "A",
+    "prenom": "Q",
+    "age": 29.0,
+    "num_permis": "SDFEEF",
     "id_vehicule": -1,
     "prix_location": 0
   }

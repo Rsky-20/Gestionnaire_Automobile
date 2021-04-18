@@ -1,5 +1,34 @@
 import tkinter as tk
+from tkinter import messagebox
+
 import lib.DataTool as DT
+
+
+def valide(Nom,Prenom, Age, NumPerm, AdressMail, Tel):
+    """
+
+    :param Nom:
+    :param Prenom:
+    :param Age:
+    :param NumPerm:
+    :param AdressMail:
+    :param Tel:
+    :return:
+    """
+    MsgboxText = """
+    - Nom : {}
+    - Prénom : {}
+    - Age : {}
+    - Numero de permis : {}
+    - Numero de telephone : {}
+    - Adresse mail : {}
+    """.format(Nom,Prenom, Age, NumPerm, AdressMail, Tel)
+    resp = messagebox.askokcancel(title="Voulez-vous rajouter cet utilisateur ?", message=MsgboxText)
+
+    if resp == True:
+        DT.ajouter_client("./data/clients.json", Nom, Prenom, Age, NumPerm)
+    else:
+        pass
 
 
 def User_Page(master):
@@ -25,9 +54,9 @@ def User_Page(master):
     tk.Entry(app, width=14, textvariable=varPrenom).place(relx=0.06, rely=0.17, relheight=0.05, relwidth=0.18)
 
     varAge = tk.DoubleVar()
-    Age = tk.LabelFrame(app, text="Age").place(relx=0.05, rely=0.245, relheight=0.09, relwidth=0.5)
-    tk.Scale(Age, orient='horizontal', from_=18, to=90,
-             resolution=1, variable=varAge).place(relx=0, rely=0, relheight=1, relwidth=1)
+    tk.LabelFrame(app, text="Age").place(relx=0.05, rely=0.245, relheight=0.09, relwidth=0.5)
+    tk.Scale(app, orient='horizontal', from_=18, to=90,
+             resolution=1, variable=varAge).place(relx=0.06, rely=0.27, relheight=0.062, relwidth=0.4)
 
     varNumPerm = tk.StringVar()
     tk.LabelFrame(app, text="Numero de permis").place(relx=0.05, rely=0.345, relheight=0.09, relwidth=0.2)
@@ -42,7 +71,8 @@ def User_Page(master):
     tk.Entry(app, width=14, textvariable=varTel).place(relx=0.36, rely=0.17, relheight=0.05, relwidth=0.18)
 
     BtnValide = tk.Button(app, text='Valider',
-                          command=lambda: DT.ajouter_client("./data/clients.json",
-                                                            varNom.get(), varPrenom.get(),
-                                                            varAge.get(), varNumPerm.get()))
+                          command=lambda:valide(varNom.get(), varPrenom.get(), varAge.get(),
+                                                varNumPerm.get(), varAdressMail, varTel))
     BtnValide.place(relx=0.3, rely=0.55, relheight=0.05, relwidth=0.4)
+
+
