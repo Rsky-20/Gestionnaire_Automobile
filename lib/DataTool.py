@@ -163,7 +163,7 @@ def ajouter_client(path, nom, prenom, age, num_permis):
 
     dfc.loc[dfc.shape[0]] = [nom, prenom, age, num_permis, -1, 0]
     enregistrer_json(dfc, path)
-
+    print(type(nom), nom, type(prenom), prenom)
     enregistrer_json(dfc, path)
 
 def retirer_client(path, num_permis):
