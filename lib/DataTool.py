@@ -18,7 +18,7 @@ def enregistrer_json(df, path):
     f = open(path, 'w')
     json.dump(json_df, f, indent=2)
     f.close()
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 def vehicules_libres(path):
     """
     renvoie les véhicules disponibles
@@ -198,15 +198,13 @@ def changer_tarif(path, gamme, t, prix, assur, caut):
 
     enregistrer_json(dft, path)
 
-# my_dict = {"nom": "G", "prenom": "J", "age": 26, "np": 10000, "dd": "13-04-2021", "df": "15-04-2021", "id": 2, "prix": 2048}
-def louer(dfv, dfc, data):
-    #On renseigne les dates de debut et de fin de location dans la dataframe dfv
-    mask = dfv["id"] == data["id"]  #on selectionne le vehicule d'id "id"
-    dfv.loc[mask, ["date_debut", "date_fin"]] = [data["dd"], data["df"]]
+def louer(path_v, path_c, num_permis, id, date_debut, date_fin, prix):
+    dfc = pa.read_json(path_c)
+    dfv = pa.read_json(path_v)
 
-    #On verifie si le client existe
-    mask = dfc["num_permis"] == data["np"]
-    if dfc[mask].empty: #si le client n'est pas enregistre, on l'ajoute
-        dfc.loc[dfc.shape[0]] = [data["nom"], data["prenom"], data["age"], data["np"], data["id"], data["prix"]]
-    else:   #si le client est enregistre
-        dfc.loc[mask, ["age", "id_vehicule", "prix_location"]] = [data["age"], data["id"], data["prix"]]
+    mask = dfv["id"] == id
+    dfv.loc[mask, ["date_debut", "date_fin"]] = [date_debut, date_fin]
+
+    mask = dfc["num_permis"] == num_permis
+
+    dfc.loc[mask, ["id_vehicule", "prix_location"]] = [id, prix]
