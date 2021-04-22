@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter.ttk import Combobox
+from tkinter import messagebox
+import lib.DataTool as DT
 
 Annul = ""
 presetUser = """
@@ -22,8 +24,16 @@ prix: {}
 
 
 def valide(a, app):
-    print(a)
-    app.destroy()
+    MsgboxText = """
+           Réservation à supprimer : {}
+           """.format(a)
+    resp = messagebox.askokcancel(title="Voulez-vous Annuler cette réservation ?", message=MsgboxText)
+
+    if resp == True:
+        print(a)
+        app.destroy()
+    else:
+        app.destroy()
 
 
 def Annul_Page(master):
