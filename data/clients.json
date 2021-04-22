@@ -54,5 +54,21 @@
     "num_permis": "SDFEEF",
     "id_vehicule": -1,
     "prix_location": 0
+  },
+  {
+    "nom": "a",
+    "prenom": "a",
+    "age": 33.0,
+    "num_permis": "1202938",
+    "id_vehicule": -1,
+    "prix_location": 0
+  },
+  {
+    "nom": "s",
+    "prenom": "s",
+    "age": 52.0,
+    "num_permis": "12234",
+    "id_vehicule": -1,
+    "prix_location": 0
   }
 ]

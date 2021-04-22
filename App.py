@@ -38,6 +38,7 @@ import lib.ReservPage as RP
 import lib.SupUserPage as SUP
 import lib.SupVehiPage as SVP
 import lib.UserPage as UP
+import lib.ExpImp_Data as EIData
 
 
 # -----------------------------------------------Class and process-----------------------------------------------------#
@@ -55,6 +56,7 @@ class MainApp:
         self.w, self.h = self.root.winfo_screenwidth(), self.root.winfo_screenheight()
         self.root.title("Gestionnaire Automobile")
         self.root.geometry('1920x1080')
+        self.root.resizable(True, True)
         self.root.bind("<Escape>", lambda e: (e.widget.withdraw(), e.widget.quit()))
 
         # self.iconbitmap('./images/téléchargement (9).ico')
@@ -82,7 +84,7 @@ class MainApp:
         menu1.add_command(label="Creer", command=0)
         menu1.add_command(label="Editer", command=0)
         menu1.add_command(label="Importer base de donnée", command=0)
-        menu1.add_command(label="Exporter base de donnée", command=0)
+        menu1.add_command(label="Exporter base de donnée", command=lambda: EIData.Export_Page(self.root))
         menu1.add_separator()
         menu1.add_command(label="Quitter", command=self.root.quit)
         menubar.add_cascade(label="Fichier", menu=menu1)

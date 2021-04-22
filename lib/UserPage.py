@@ -1,10 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox
-
 import lib.DataTool as DT
 
 
-def valide(Nom,Prenom, Age, NumPerm, AdressMail, Tel):
+def valide(Nom,Prenom, Age, NumPerm, AdressMail, Tel, app):
     """
 
     :param Nom:
@@ -27,7 +26,9 @@ def valide(Nom,Prenom, Age, NumPerm, AdressMail, Tel):
 
     if resp == True:
         DT.ajouter_client("./data/clients.json", Nom, Prenom, Age, NumPerm)
+        app.destroy()
     else:
+        app.destroy()
         pass
 
 
@@ -72,7 +73,7 @@ def User_Page(master):
 
     BtnValide = tk.Button(app, text='Valider',
                           command=lambda:valide(varNom.get(), varPrenom.get(), varAge.get(),
-                                                varNumPerm.get(), varAdressMail, varTel))
+                                                varNumPerm.get(), varAdressMail, varTel, app))
     BtnValide.place(relx=0.3, rely=0.55, relheight=0.05, relwidth=0.4)
 
 
