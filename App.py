@@ -65,7 +65,7 @@ class MainApp:
         self.photo = PhotoImage(file='./images/Service_img.gif')
         espace_image = Canvas(self.root, bg='blue')
         espace_image.place(rely=0.0, relx=0.25, relwidth=0.75, relheight=1, )
-        espace_image.create_image(600, 550, image=self.photo) #600, 550,
+        espace_image.create_image(600, 550, image=self.photo)
 
         self.root.mainloop()
 
@@ -96,7 +96,8 @@ class MainApp:
         menubar.add_cascade(label="Editer", menu=menu2)
 
         menu3 = Menu(menubar, tearoff=0)
-        menu3.add_command(label="A propos", command=lambda: AbP.About_Page(self.root))
+        menu3.add_command(label="A propos",
+                          command=lambda: AbP.About_Page(self.root))
         menubar.add_cascade(label="Aide", menu=menu3)
 
         self.root.config(menu=menubar)
@@ -104,28 +105,27 @@ class MainApp:
         self.banner = tk.Frame(self.root, bg="#CFC7C5")
         self.banner.place(relwidth=0.25, relheight=1)
 
-        self.user = tk.Button(self.banner, text='USER',
-                              command=lambda: UP.User_Page(self.root)).place(relx=0.3,
-                                                                              rely=0.2, relheight=0.05, relwidth=0.4)
-        self.reservation = tk.Button(self.banner, text='RESERVATION',
-                                     command=lambda: RP.Reserv_Page(self.root)).place(relx=0.3, rely=0.3,
-                                                                                       relheight=0.05, relwidth=0.4)
-        self.annulation = tk.Button(self.banner, text='ANNULATION',
+        tk.Button(self.banner, text='USER',
+                  command=lambda: UP.User_Page(self.root)).place(relx=0.3,
+                                                                 rely=0.2, relheight=0.05, relwidth=0.4)
+        tk.Button(self.banner, text='RESERVATION',
+                  command=lambda: RP.Reserv_Page(self.root)).place(relx=0.3, rely=0.3,
+                                                                   relheight=0.05, relwidth=0.4)
+        tk.Button(self.banner, text='ANNULATION',
                                     command=lambda: AnP.Annul_Page(self.root)).place(
             relx=0.3, rely=0.4, relheight=0.05,
             relwidth=0.4)
-        self.admin = tk.Button(self.banner, text='ADMIN',
+        self.admin = tk.Button(self.banner, text='ADMIN', 
                                command=self.admin).place(relx=0.3, rely=0.55, relheight=0.05, relwidth=0.4)
 
         self.listeAdmin = ["", "Ajout Véhicule", "Suppression Véhicule", "Suppréssion Utilisateur"]
         self.listeCombo1 = Combobox(self.banner, height=200, width=27, values=self.listeAdmin)
         self.listeCombo1.current(0)
-        self.listeCombo1.place(relx=0.3, rely=0.6, relheight=0.05, relwidth=0.4)
+        self.listeCombo1.place(
+            relx=0.3, rely=0.6, relheight=0.05, relwidth=0.4)
         self.listeCombo1.bind("<<ComboboxSelected>>", self.admin)
 
-
-
-    def admin(self):
+    def admin(self): # pylint: disable=E0202
         """
         [description]
         Fonction permettant de choisir la page à ouvrir parmi un menu déroulant
