@@ -1,5 +1,6 @@
 import pandas as pa
 import json
+import datetime as dt
 
 dfc = pa.read_json('data/clients.json')
 dft = pa.read_json('data/tarifs.json')
@@ -18,7 +19,7 @@ def enregistrer_json(df, path):
     f = open(path, 'w')
     json.dump(json_df, f, indent=2)
     f.close()
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
 def vehicules_libres(df):
     """
     renvoie les véhicules disponibles
@@ -124,6 +125,7 @@ def retirer_vehicule(dfv, id):
     mask = dfv['id'] != id
     dfv = dfv[mask]
 
+
 def export_bdd(df, path_csv):
     """
     exporte une base de donnees json sous format csv
@@ -133,6 +135,17 @@ def export_bdd(df, path_csv):
         path : chemin où sauvegarder le fichier
     """
     df.to_csv(path_csv, sep=';')
+
+
+def import_bdd(path_csv, path_json):
+    df = pa.read_csv(path_csv, sep=';')
+    enregistrer_json(df, path_json)
+
+    global dfc, dft, dfv
+
+    dfc = pa.read_json('data/clients.json')
+    dft = pa.read_json('data/tarifs.json')
+    dfv = pa.read_json('data/vehicules.json')
 
 def ajouter_client(dfc, nom, prenom, age, num_permis):
     """
@@ -188,20 +201,21 @@ def calculer_prix(dfv, dft, date_debut, date_fin, gamme):
     L_debut = date_debut.split('-')
     L_fin = date_fin.split('-')
 
-    a = int(L_fin[2])-int(L_debut[2])
-    m = abs(int(L_fin[1])-int(L_debut[1]))
-    j = abs(int(L_fin[0])-int(L_debut[0]))
+    debut = dt.date(int(L_debut[2]), int(L_debut[1]), int(L_debut[0]))
+    fin = dt.date(int(L_fin[2]), int(L_fin[1]), int(L_fin[0]))
+    duree = fin-debut.days
 
-    print(a, m, j)
+    return fin-debut
 
 #afficher des informations personnelles
 def InformationPersonnel():
-    return(dfclients["nom"] + " " + dfclients["prenom"])
+    return(dfc["nom"] + " " + dfc["prenom"])
 
 def InformationPersonnelClientReserver():
     mask = dfv["date_debut"] != ""
     return(mask["nom"] + " " + mask["prenom"])
 
 if __name__=='__main__':
-    ajouter_client(dfc, 'Test_n', 'Test_p', 42, 12345)
-    print(dfc)
+    #TESTS
+    d = calculer_prix(dfv, dft, '5-12-2013', '10-12-2013', 'SUV')
+    print(d.days)
