@@ -214,10 +214,10 @@ def calculer_prix(dfv, dft, date_debut, date_fin, gamme):
 def InformationPersonnel(dfc):
     return(dfc["nom"] + " " + dfc["prenom"])
 
-def InformationPersonnelClientReserver(dfv):
-    mask = dfv["date_debut"] != ""
-    return(mask["nom"] + " " + mask["prenom"])
+def InformationPersonnelClientReserver(dfc):
+    mask = dfc["id_vehicule"] != -1
+    return(dfc[mask]["nom"] + " " + dfc[mask]["prenom"])
 
 if __name__=='__main__':
     #TESTS
-    print(InformationPersonnelClientReserver(dfv))
+    print(InformationPersonnelClientReserver(dfc))
