@@ -30,7 +30,9 @@ Licence: MIT
 import tkinter as tk
 from tkinter import *
 from tkinter.ttk import Combobox
+from tkinter import messagebox
 from PIL import Image
+import lib.DataTool as DT
 import lib.AboutPage as AbP
 import lib.AjoutVehiPage as AVP
 import lib.AnnulPage as AnP
@@ -57,7 +59,7 @@ class MainApp:
         self.root.title("Gestionnaire Automobile")
         self.root.geometry('1920x1080')
         self.root.resizable(True, True)
-        self.root.bind("<Escape>", lambda e: (e.widget.withdraw(), e.widget.quit()))
+        #self.root.bind("<Escape>", lambda: self.QuitApp)
 
         # self.iconbitmap('./images/téléchargement (9).ico')
         self.Widgets()
@@ -68,6 +70,7 @@ class MainApp:
         espace_image.create_image(600, 550, image=self.photo)
 
         self.root.mainloop()
+
 
     def Widgets(self):
         """
@@ -81,12 +84,10 @@ class MainApp:
         menubar = Menu(self.root)
 
         menu1 = Menu(menubar, tearoff=0)
-        menu1.add_command(label="Creer", command=0)
-        menu1.add_command(label="Editer", command=0)
         menu1.add_command(label="Importer base de donnée", command=0)
         menu1.add_command(label="Exporter base de donnée", command=lambda: EIData.Export_Page(self.root))
         menu1.add_separator()
-        menu1.add_command(label="Quitter", command=self.root.quit)
+        menu1.add_command(label="Quitter", command=self.QuitApp)
         menubar.add_cascade(label="Fichier", menu=menu1)
 
         menu2 = Menu(menubar, tearoff=0)
@@ -115,10 +116,11 @@ class MainApp:
                                     command=lambda: AnP.Annul_Page(self.root)).place(
             relx=0.3, rely=0.4, relheight=0.05,
             relwidth=0.4)
-        self.admin = tk.Button(self.banner, text='ADMIN', 
+        self.admin = tk.Button(self.banner, text='ADMIN',
                                command=self.admin).place(relx=0.3, rely=0.55, relheight=0.05, relwidth=0.4)
 
-        self.listeAdmin = ["", "Ajout Véhicule", "Suppression Véhicule", "Suppréssion Utilisateur"]
+        self.listeAdmin = ["Selectionner une action", "Ajout Véhicule", "Suppression Véhicule",
+                           "Suppréssion Utilisateur"]
         self.listeCombo1 = Combobox(self.banner, height=200, width=27, values=self.listeAdmin)
         self.listeCombo1.current(0)
         self.listeCombo1.place(
@@ -144,6 +146,20 @@ class MainApp:
         elif self.select == "Suppréssion Utilisateur":
             SUP.SupUser_Page(self.root)
 
+    def QuitApp(self):
+        """
+        [description]
+
+        :return:
+        """
+        resp = messagebox.askokcancel(title="Voulez-vous rajouter cet utilisateur ?")
+        if resp == True:
+            DT.enregistrer_json(DT.dfc, "./data/clients.json")
+            DT.enregistrer_json(DT.dft, "./data/tarifs.json")
+            DT.enregistrer_json(DT.dfv, "./data/vehicules.json")
+            self.root.destroy()
+        else:
+            pass
 
 # -------------------------------------------Run & Start server program----------------------------------------------- #
 
