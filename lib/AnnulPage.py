@@ -31,7 +31,7 @@ def valide(a, app):
     resp = messagebox.askokcancel(title="Voulez-vous Annuler cette réservation ?", message=MsgboxText)
 
     if resp == True:
-        print(a)
+        DT.annuler_location(DT.dfc, DT.dfv, id)
         app.destroy()
     else:
         app.destroy()
@@ -61,13 +61,9 @@ def Annul_Page(master):
         type(select)
 
         #print(listeUser)
-
-
         if select != "Selectionner un utilisateur":
-            #print(DT.aff_client(DT.dfc, LUser[0], LUser[1]))
             LUser = select.split(" ")
             print(LUser)
-
 
             User = DT.aff_client(DT.dfc, LUser)
 
@@ -75,13 +71,12 @@ def Annul_Page(master):
 
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
-            return Annul
+            return User[4]
         else:
             Annul = ""
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
             return Annul
-
 
     app = tk.Toplevel(master)
     app.geometry('920x640')
