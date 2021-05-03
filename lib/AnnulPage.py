@@ -54,39 +54,24 @@ def Annul_Page(master):
 
         global Annul
 
-        id1 = 1
-        id2 = 2
-        id3 = 3
-
         # Obtenir l'élément sélectionné
         select = listeCombo1.get()
         print("Vous avez sélectionné : '", select, "'")
 
-        if select == "user1":
-            Annul = presetUser.format("a","z","e","r","t","y", id1,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+        UserListe = DT.InformationPersonnelClientReserver
+        print(UserListe)
 
-        elif select == "user2":
-            Annul = presetUser.format("a","z","e","r","t","y", id2,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
-
-        elif select == "userX":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
-
-        else:
-            Annul = ""
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
-            return Annul
-
-
+        for i in UserListe:
+            if select == i:
+                #Annul = presetUser.format("a", "z", "e", "r", "t", "y", id1, "u", "i", "o", "p")
+                UserInfo.delete("1.0", "end")
+                UserInfo.insert(tk.END, i)
+                return Annul
+            else:
+                Annul = ""
+                UserInfo.delete("1.0", "end")
+                UserInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
+                return Annul
 
 
     app = tk.Toplevel(master)
@@ -100,8 +85,9 @@ def Annul_Page(master):
     BtnValide = tk.Button(label, text='Valider', command=lambda: valide(Annul, app))
     BtnValide.place(relx=0.3, rely=0.8, relheight=0.05, relwidth=0.4)
 
-    listeAdmin = ["", "user1", "user2", "userX"]
-    listeCombo1 = Combobox(label, height=200, width=27, values=listeAdmin)
+    listeUser = DT.InformationPersonnelClientReserver
+    print(DT.InformationPersonnelClientReserver)
+    listeCombo1 = Combobox(label, height=200, width=27, values=listeUser)
     listeCombo1.current(0)
     listeCombo1.place(relx=0.3, rely=0.1, relheight=0.05, relwidth=0.4)
     listeCombo1.bind("<<ComboboxSelected>>", UserSelect)
