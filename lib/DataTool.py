@@ -1,9 +1,9 @@
 import pandas as pa
 import json
 
-p_clients = './data/clients.json'
-p_tarifs = './data/tarifs.json'
-p_vehicules = './data/vehicules.json'
+dfc = pa.read_json('data/clients.json')
+dft = pa.read_json('data/tarifs.json')
+dfv = pa.read_json('data/vehicules.json')
 
 def enregistrer_json(df, path):
     """
@@ -19,63 +19,58 @@ def enregistrer_json(df, path):
     json.dump(json_df, f, indent=2)
     f.close()
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-def vehicules_libres(path):
+def vehicules_libres(df):
     """
     renvoie les véhicules disponibles
 
     in :
-        path : adresse de la base de donnees des vehicules
+        df : dataframe de la base de donnees des vehicules
     return :
         dataframe contenant les véhicules non loués ou réservés
     """
-    df = pa.read_json(path)
 
     mask = df['date_debut'] == ''
     return df[mask]
 
-def km_ok(path, id, km):
+def km_ok(df, id, km):
     """
     vérifie si le kilométrage renseigné à la cloture
     de la location est valide
 
     in : 
-        path : adresse de la base de donnees des vehicules
+        df : dataframe de la base de donnees des vehicules
         id : nouméro d'idendification du véhicule en question
         km : kilométrage renseigné à la cloture
     return : booléen
         (True si le kilométrage est valide, False sinon)
     """
-    df = pa.read_json(path)
 
     mask = df['id'] == id
     kil = df[mask].iloc[0]['kilometrage']
     return kil < km
 
-def vehicules_loues(path):
+def vehicules_loues(dfv):
     """
     renvoie les véhicules loués ou reservés
 
     in : 
-        path : adresse de la base de donnees des vehicules
+        df : dataframe de la base de donnees des vehicules
     return : dataframe contenant les véhicules loués ou réservés
     """
-    dfv = pa.read_json(path)
 
     mask = dfv['date_debut'] != ''
     d = dfv[mask]
     return d
 
-def annuler_location(path_c, path_v, id):
+def annuler_location(dfc, dfv, id):
     """
     libère un véhicule réservé
 
     in :
-        path_c : adresse de la base de donnees des clients
-        path_v : adresse de la base de donnees des vehicules
+        dfc : dataframe de la base de donnees des clients
+        dfv : dataframe de la base de donnees des vehicules
         id : numéro d'identification du véhicule
     """
-    dfc = pa.read_json(path_c)
-    dfv = pa.read_json(path_v)
 
     mask = dfv['id']==id
     dfv.loc[mask, ['date_debut', 'date_fin']] = ['', '']
@@ -83,20 +78,16 @@ def annuler_location(path_c, path_v, id):
     mask = dfc['id_vehicule']==id
     dfc.loc[mask, ['id_vehicule', 'prix_location']] = [-1, 0]
 
-    enregistrer_json(dfv, path_v)
-    enregistrer_json(dfc, path_c)
 
-def terminer_location(path_c, path_v, id, km):
+def terminer_location(dfc, dfv, id, km):
     """
     libère un véhicule à la fin de sa location
 
     in :
-        path_c : adresse de la base de donnees des clients
-        path_v : adresse de la base de donnees des vehicules
+        dfc : dataframe de la base de donnees des clients
+        dfv : dataframe de la base de donnees des vehicules
         id : numéro d'identification du véhicule
     """
-    dfc = pa.read_json(path_c)
-    dfv = pa.read_json(path_v)
 
     if km_ok(dfv, id, km):
         mask = dfv['id']==id
@@ -105,39 +96,35 @@ def terminer_location(path_c, path_v, id, km):
         mask = dfc['id_vehicule']==id
         dfc.loc[mask, ['id_vehicule', 'prix_location']] = [-1, 0]
     
-    enregistrer_json(dfv, path_v)
-    enregistrer_json(dfc, path_c)
 
-def ajouter_vehicule(path, t, mark, mod, carb, gam, km):
+def ajouter_vehicule(dfv, t, mark, mod, carb, gam, km):
     """
     ajoute un véhicule à la base de données
 
     in :
-        path : adresse de la base de donnees des vehicules
+        dfv : dataframe de la base de donnees des vehicules
         dic : dictionnaire contenant toutes les caractéristiques du véhicule à ajouter,
             sauf le numéro d'identification ('id' : None)
     """
-    dfv = pa.read_json(path)
 
     id = dfv['id'][len(dfv)-1] + 1
 
     dfv.loc[dfv.shape[0]] = [id, t, mark, mod, carb, km, gam, '', '']
-    enregistrer_json(dfv, path)
 
-def retirer_vehicule(path, id):
+
+def retirer_vehicule(dfv, id):
     """
     supprime un véhicule de la base de données
 
     in :
-        path : adresse de la base de donnees des vehicules
+        dfv : dataframe de la base de donnees des vehicules
         id : numéro d'identification du véhicule à supprimer
     """
-    dfv = pa.read_json(path)
 
     mask = dfv['id'] != id
-    enregistrer_json(dfv[mask], path)
+    dfv = dfv[mask]
 
-def export_bdd(path_json, path_csv):
+def export_bdd(df, path_csv):
     """
     exporte une base de donnees json sous format csv
 
@@ -145,10 +132,9 @@ def export_bdd(path_json, path_csv):
         path_json : adresse de la base de donnees a exporter
         path : chemin où sauvegarder le fichier
     """
-    df = pa.read_json(path_json)
     df.to_csv(path_csv, sep=';')
 
-def ajouter_client(path, nom, prenom, age, num_permis):
+def ajouter_client(dfc, nom, prenom, age, num_permis):
     """
     ajoute un client à la base de donnees
 
@@ -159,52 +145,63 @@ def ajouter_client(path, nom, prenom, age, num_permis):
         age : age du client à ajouter
         num_permis : numéro du permis du client à ajouter
     """
-    dfc = pa.read_json(path)
 
     dfc.loc[dfc.shape[0]] = [nom, prenom, age, num_permis, -1, 0]
-    enregistrer_json(dfc, path)
-    print(type(nom), nom, type(prenom), prenom)
-    enregistrer_json(dfc, path)
 
-def retirer_client(path, num_permis):
+
+def retirer_client(dfc, num_permis):
     """
     supprime un client de la base de donnees
 
     in :
-        path : adresse de la base de donnees des clients
+        dfc : dataframe de la base de donnees des clients
         num_permis : numéro du permis du client à retirer
     """
-    dfc = pa.read_json(path)
-
     mask = dfc['num_permis'] != num_permis
-    enregistrer_json(dfc[mask],path)
+    dfc = dfc[mask]
 
-def changer_tarif(path, gamme, t, prix, assur, caut):
+def changer_tarif(dft, gamme, t, prix, assur, caut):
     """
     change le tarif d'une gamme de véhicules
 
     in :
-        path : adresse de la base de donnees des tarifs
+        dft : dataframe de la base de donnees des tarifs
         gamme : nom de la gamme dont on veut changer les tarfis
         prix : nouveau prix a attribuer
         assur : nouveau montant d'assurance a attribuer
         caut : nouvelle caution a attribuer 
     """
-    dft = pa.read_json(path)
-
     mask = (dft.gamme==gamme) & (dft.type==t)
 
     dft.loc[mask, ['prix', 'assurance', 'caution']] = [prix, assur, caut]
 
-    enregistrer_json(dft, path)
 
-def louer(path_v, path_c, num_permis, id, date_debut, date_fin, prix):
-    dfc = pa.read_json(path_c)
-    dfv = pa.read_json(path_v)
-
+def louer(dfv, dfc, num_permis, id, date_debut, date_fin, prix):
     mask = dfv["id"] == id
     dfv.loc[mask, ["date_debut", "date_fin"]] = [date_debut, date_fin]
 
     mask = dfc["num_permis"] == num_permis
 
     dfc.loc[mask, ["id_vehicule", "prix_location"]] = [id, prix]
+
+def calculer_prix(dfv, dft, date_debut, date_fin, gamme):
+    L_debut = date_debut.split('-')
+    L_fin = date_fin.split('-')
+
+    a = int(L_fin[2])-int(L_debut[2])
+    m = abs(int(L_fin[1])-int(L_debut[1]))
+    j = abs(int(L_fin[0])-int(L_debut[0]))
+
+    print(a, m, j)
+
+#afficher des informations personnelles
+def InformationPersonnel():
+    return(dfclients["nom"] + " " + dfclients["prenom"])
+
+def InformationPersonnelClientReserver():
+    mask = dfv["date_debut"] != ""
+    return(mask["nom"] + " " + mask["prenom"])
+
+if __name__=='__main__':
+    ajouter_client(dfc, 'Test_n', 'Test_p', 42, 12345)
+    print(dfc)
