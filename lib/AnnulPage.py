@@ -3,6 +3,7 @@ from tkinter.ttk import Combobox
 from tkinter import messagebox
 import lib.DataTool as DT
 
+listeUser = ["Selectionner un utilisateur"] + DT.InformationPersonnel(DT.dfc)
 Annul = ""
 presetUser = """
 Nom: {}
@@ -58,13 +59,14 @@ def Annul_Page(master):
         select = listeCombo1.get()
         print("Vous avez sélectionné : '", select, "'")
 
-        print(listeUser)
+        #print(listeUser)
 
         for i in listeUser:
             if select == i:
-                #Annul = presetUser.format("a", "z", "e", "r", "t", "y", id1, "u", "i", "o", "p")
+                Annul = presetUser.format(i, i, "e", "r", "t", "y", i, "u", "i", "o", "p")
+                print(DT.aff_client(DT.dfc, nom, prenom))
                 UserInfo.delete("1.0", "end")
-                UserInfo.insert(tk.END, i)
+                UserInfo.insert(tk.END, Annul)
                 return Annul
             else:
                 Annul = ""
@@ -86,7 +88,6 @@ def Annul_Page(master):
     print(DT.InformationPersonnelClientReserver(DT.dfc))
     type(DT.InformationPersonnelClientReserver(DT.dfc))
 
-    listeUser = ["Selectionner un utilisateur"] + DT.InformationPersonnel(DT.dfc)
     listeCombo1 = Combobox(label, height=200, width=27, values=listeUser)
     listeCombo1.current(0)
     listeCombo1.place(relx=0.3, rely=0.1, relheight=0.05, relwidth=0.4)
