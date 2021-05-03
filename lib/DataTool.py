@@ -203,19 +203,21 @@ def calculer_prix(dfv, dft, date_debut, date_fin, gamme):
 
     debut = dt.date(int(L_debut[2]), int(L_debut[1]), int(L_debut[0]))
     fin = dt.date(int(L_fin[2]), int(L_fin[1]), int(L_fin[0]))
-    duree = fin-debut.days
+    duree = (fin-debut).days
 
-    return fin-debut
+    mask = (dft.gamme==gamme)
+    prix, assurance = int(dft[mask]['prix']), int(dft[mask]['assurance'])
+
+    return (fin-debut).days*(prix+assurance)
 
 #afficher des informations personnelles
-def InformationPersonnel():
+def InformationPersonnel(dfc):
     return(dfc["nom"] + " " + dfc["prenom"])
 
-def InformationPersonnelClientReserver():
+def InformationPersonnelClientReserver(dfv):
     mask = dfv["date_debut"] != ""
     return(mask["nom"] + " " + mask["prenom"])
 
 if __name__=='__main__':
     #TESTS
-    d = calculer_prix(dfv, dft, '5-12-2013', '10-12-2013', 'SUV')
-    print(d.days)
+    print(InformationPersonnelClientReserver(dfv))
