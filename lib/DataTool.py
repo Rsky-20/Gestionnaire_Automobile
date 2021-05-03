@@ -220,5 +220,4 @@ def InformationPersonnelClientReserver(dfc):
 
 if __name__=='__main__':
     #TESTS
-    print("voilà : ", InformationPersonnelClientReserver(dfc))
-    print("voilà : ", InformationPersonnel(dfc))
+    print(InformationPersonnelClientReserver(dfc))

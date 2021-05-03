@@ -58,7 +58,7 @@ def Annul_Page(master):
         select = listeCombo1.get()
         print("Vous avez sélectionné : '", select, "'")
 
-        UserListe = DT.InformationPersonnelClientReserver(DT.dfc)
+        UserListe = DT.InformationPersonnelClientReserver
         print(UserListe)
 
         for i in UserListe:
@@ -85,7 +85,7 @@ def Annul_Page(master):
     BtnValide = tk.Button(label, text='Valider', command=lambda: valide(Annul, app))
     BtnValide.place(relx=0.3, rely=0.8, relheight=0.05, relwidth=0.4)
 
-    listeUser = DT.InformationPersonnelClientReserver(DT.dfc)
+    listeUser = DT.InformationPersonnelClientReserver
     print(DT.InformationPersonnelClientReserver)
     listeCombo1 = Combobox(label, height=200, width=27, values=listeUser)
     listeCombo1.current(0)
