@@ -58,21 +58,29 @@ def Annul_Page(master):
         # Obtenir l'élément sélectionné
         select = listeCombo1.get()
         print("Vous avez sélectionné : '", select, "'")
+        type(select)
 
         #print(listeUser)
 
-        for i in listeUser:
-            if select == i:
-                Annul = presetUser.format(i, i, "e", "r", "t", "y", i, "u", "i", "o", "p")
-                print(DT.aff_client(DT.dfc, nom, prenom))
-                UserInfo.delete("1.0", "end")
-                UserInfo.insert(tk.END, Annul)
-                return Annul
-            else:
-                Annul = ""
-                UserInfo.delete("1.0", "end")
-                UserInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
-                return Annul
+
+        if select != "Selectionner un utilisateur":
+            #print(DT.aff_client(DT.dfc, LUser[0], LUser[1]))
+            LUser = select.split(" ")
+            print(LUser)
+
+
+            User = DT.aff_client(DT.dfc, LUser)
+
+            Annul = presetUser.format(User[0], User[1], User[3], "r", "t", "y", User[4], "u", "i", "o", User[-1])
+
+            UserInfo.delete("1.0", "end")
+            UserInfo.insert(tk.END, Annul)
+            return Annul
+        else:
+            Annul = ""
+            UserInfo.delete("1.0", "end")
+            UserInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
+            return Annul
 
 
     app = tk.Toplevel(master)
@@ -85,8 +93,6 @@ def Annul_Page(master):
 
     BtnValide = tk.Button(label, text='Valider', command=lambda: valide(Annul, app))
     BtnValide.place(relx=0.3, rely=0.8, relheight=0.05, relwidth=0.4)
-    print(DT.InformationPersonnelClientReserver(DT.dfc))
-    type(DT.InformationPersonnelClientReserver(DT.dfc))
 
     listeCombo1 = Combobox(label, height=200, width=27, values=listeUser)
     listeCombo1.current(0)
