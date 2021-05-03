@@ -8,9 +8,7 @@
     "gamme": "SUV",
     "kilometrage": 40000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 2,
@@ -21,9 +19,7 @@
     "gamme": "SUV",
     "kilometrage": 75000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 3,
@@ -34,9 +30,7 @@
     "gamme": "SUV",
     "kilometrage": 36000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 4,
@@ -47,9 +41,7 @@
     "gamme": "SUV",
     "kilometrage": 89000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 5,
@@ -60,9 +52,7 @@
     "gamme": "SUV",
     "kilometrage": 12000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 6,
@@ -73,9 +63,7 @@
     "gamme": "SUV",
     "kilometrage": 20000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 7,
@@ -86,9 +74,7 @@
     "gamme": "SUV",
     "kilometrage": 3000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 8,
@@ -99,9 +85,7 @@
     "gamme": "SUV",
     "kilometrage": 2000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 9,
@@ -112,9 +96,7 @@
     "gamme": "SUV",
     "kilometrage": 1000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 10,
@@ -125,9 +107,7 @@
     "gamme": "BERLINE",
     "kilometrage": 27000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 11,
@@ -138,9 +118,7 @@
     "gamme": "BERLINE",
     "kilometrage": 68000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 12,
@@ -151,9 +129,7 @@
     "gamme": "BERLINE",
     "kilometrage": 35000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 13,
@@ -164,9 +140,7 @@
     "gamme": "BERLINE",
     "kilometrage": 900,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 14,
@@ -177,9 +151,7 @@
     "gamme": "BERLINE",
     "kilometrage": 560,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 15,
@@ -190,9 +162,7 @@
     "gamme": "BERLINE",
     "kilometrage": 2345,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 16,
@@ -203,9 +173,7 @@
     "gamme": "BERLINE",
     "kilometrage": 349,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 17,
@@ -216,9 +184,7 @@
     "gamme": "BERLINE",
     "kilometrage": 903,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 18,
@@ -229,9 +195,7 @@
     "gamme": "BERLINE",
     "kilometrage": 234,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 19,
@@ -242,9 +206,7 @@
     "gamme": "MONOSPACE",
     "kilometrage": 45000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 20,
@@ -255,9 +217,7 @@
     "gamme": "MONOSPACE",
     "kilometrage": 3455,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 21,
@@ -268,9 +228,7 @@
     "gamme": "MONOSPACE",
     "kilometrage": 8900,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 22,
@@ -281,9 +239,7 @@
     "gamme": "MONOSPACE",
     "kilometrage": 3499,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 23,
@@ -294,9 +250,7 @@
     "gamme": "MONOSPACE",
     "kilometrage": 10,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 24,
@@ -307,9 +261,7 @@
     "gamme": "MONOSPACE",
     "kilometrage": 34899,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 25,
@@ -320,9 +272,7 @@
     "gamme": "SPORTIVE",
     "kilometrage": 23888,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 26,
@@ -333,9 +283,7 @@
     "gamme": "SPORTIVE",
     "kilometrage": 90000,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 27,
@@ -346,9 +294,7 @@
     "gamme": "SPORTIVE",
     "kilometrage": 87900,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 28,
@@ -359,9 +305,7 @@
     "gamme": "SPORTIVE",
     "kilometrage": 17350,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 29,
@@ -372,9 +316,7 @@
     "gamme": "ELECTRIQUE",
     "kilometrage": 22378,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 30,
@@ -385,9 +327,7 @@
     "gamme": "ELECTRIQUE",
     "kilometrage": 12300,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 31,
@@ -398,9 +338,7 @@
     "gamme": "ELECTRIQUE",
     "kilometrage": 5468,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 32,
@@ -411,9 +349,7 @@
     "gamme": "ELECTRIQUE",
     "kilometrage": 23400,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 33,
@@ -424,9 +360,7 @@
     "gamme": "3 A 5",
     "kilometrage": 11500,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 34,
@@ -437,9 +371,7 @@
     "gamme": "6 A 10",
     "kilometrage": 78400,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 35,
@@ -450,9 +382,7 @@
     "gamme": "6 A 10",
     "kilometrage": 1260,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 36,
@@ -463,9 +393,7 @@
     "gamme": "11 A 15",
     "kilometrage": 970,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 37,
@@ -476,9 +404,7 @@
     "gamme": "11 A 15",
     "kilometrage": 4332,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 38,
@@ -489,9 +415,7 @@
     "gamme": "20 A 25",
     "kilometrage": 64356,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 39,
@@ -502,9 +426,7 @@
     "gamme": "20 A 25",
     "kilometrage": 34546,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 40,
@@ -515,9 +437,7 @@
     "gamme": "20 A 25",
     "kilometrage": 5677,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   },
   {
     "id": 41,
@@ -528,8 +448,6 @@
     "gamme": "BENNE",
     "kilometrage": 231,
     "date_debut": "",
-    "date_fin": "",
-    "mod\u00e8le": null,
-    "date fin": null
+    "date_fin": ""
   }
 ]

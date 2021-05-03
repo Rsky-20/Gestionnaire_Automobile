@@ -52,16 +52,15 @@ def Annul_Page(master):
         :return:
         """
 
-        global Annul
+        global Annul, listeUser
 
         # Obtenir l'élément sélectionné
         select = listeCombo1.get()
         print("Vous avez sélectionné : '", select, "'")
 
-        UserListe = DT.InformationPersonnelClientReserver
-        print(UserListe)
+        print(listeUser)
 
-        for i in UserListe:
+        for i in listeUser:
             if select == i:
                 #Annul = presetUser.format("a", "z", "e", "r", "t", "y", id1, "u", "i", "o", "p")
                 UserInfo.delete("1.0", "end")
@@ -84,9 +83,10 @@ def Annul_Page(master):
 
     BtnValide = tk.Button(label, text='Valider', command=lambda: valide(Annul, app))
     BtnValide.place(relx=0.3, rely=0.8, relheight=0.05, relwidth=0.4)
+    print(DT.InformationPersonnelClientReserver(DT.dfc))
+    type(DT.InformationPersonnelClientReserver(DT.dfc))
 
-    listeUser = DT.InformationPersonnelClientReserver
-    print(DT.InformationPersonnelClientReserver)
+    listeUser = ["Selectionner un utilisateur"] + DT.InformationPersonnel(DT.dfc)
     listeCombo1 = Combobox(label, height=200, width=27, values=listeUser)
     listeCombo1.current(0)
     listeCombo1.place(relx=0.3, rely=0.1, relheight=0.05, relwidth=0.4)
