@@ -222,8 +222,10 @@ def aff_client(dfc, nom_prenom):
     mask = (dfc.nom==nom_prenom[0]) & (dfc.prenom==nom_prenom[1])
     return dfc[mask].values[0].tolist()
 
-
+def aff_vehicule(dfv, id):
+    mask = dfv["id"] == id
+    return dfv[mask].values[0].tolist()
 
 if __name__=='__main__':
     #TESTS
-    print(aff_client(dfc, ['Warford', "Booker"]))
+    print(aff_vehicule(dfv, 41))
