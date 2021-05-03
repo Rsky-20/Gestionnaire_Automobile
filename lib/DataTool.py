@@ -218,7 +218,11 @@ def InformationPersonnelClientReserver(dfc):
     mask = dfc["id_vehicule"] != -1
     return(list(dfc[mask]["nom"] + " " + dfc[mask]["prenom"]))
 
+def aff_client(dfc, nom, prenom):
+    mask = (dfc.nom==nom) & (dfc.prenom==prenom)
+    return dfc[mask].values[0].tolist()
+
+
 if __name__=='__main__':
     #TESTS
-    print(InformationPersonnel(dfc))
-    print(InformationPersonnelClientReserver(dfc))
+    print(aff_client(dfc, 'Warford', "Booker"))
