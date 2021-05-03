@@ -2,9 +2,9 @@ import pandas as pa
 import json
 import datetime as dt
 
-dfc = pa.read_json('data/clients.json')
-dft = pa.read_json('data/tarifs.json')
-dfv = pa.read_json('data/vehicules.json')
+dfc = pa.read_json('../data/clients.json')
+dft = pa.read_json('../data/tarifs.json')
+dfv = pa.read_json('../data/vehicules.json')
 
 def enregistrer_json(df, path):
     """
