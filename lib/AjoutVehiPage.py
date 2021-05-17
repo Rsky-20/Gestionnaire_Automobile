@@ -10,7 +10,9 @@ def AjoutVehi_Page(master):
     """
 
     app = tk.Toplevel(master)
-    app.geometry('920x640')
-    app.w, app.h = app.winfo_screenwidth(), app.winfo_screenheight()
+    app.geometry('920x640+500+125')
+    app.attributes("-toolwindow", 1)# Supprime les boutons Réduire/Agrandir
+    app.transient(master)
+    app.resizable(False, False)
     app.title("Ajout Véhicle")
 

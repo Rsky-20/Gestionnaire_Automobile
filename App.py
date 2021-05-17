@@ -31,7 +31,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter.ttk import Combobox
 from tkinter import messagebox
-from PIL import Image
+from PIL import Image, ImageTk
 import lib.DataTool as DT
 import lib.AboutPage as AbP
 import lib.AjoutVehiPage as AVP
@@ -55,32 +55,27 @@ class MainApp:
     def __init__(self):
         super().__init__()
         self.root = tk.Tk()
+        self.root.wm_attributes('-transparentcolor', 'red')
         self.w, self.h = self.root.winfo_screenwidth(), self.root.winfo_screenheight()
         self.root.title("Gestionnaire Automobile")
         self.root.geometry('1920x1080')
         self.root.resizable(True, True)
         #self.root.bind("<Escape>", lambda: self.QuitApp)
+        #Menu : Fichier
+        self.TopMenu()
+
+        #Background image
+        self.image = PhotoImage(file='./images/ABF8686-bewerkt.gif')
+        self.canvas = Canvas(self.root, width=self.w, height=self.h)
+        self.canvas.place(rely=0.0, relx=0.0, relwidth=1, relheight=1)
+        self.canvas.create_image(0, 0, image=self.image, anchor=NW, )
 
         # self.iconbitmap('./images/téléchargement (9).ico')
         self.Widgets()
 
-        self.photo = PhotoImage(file='./images/ABF8686-bewerkt.gif')
-        espace_image = Canvas(self.root, bg='blue')
-        espace_image.place(rely=0.0, relx=0.0, relwidth=0.75, relheight=1, )
-        espace_image.create_image(600, 550, image=self.photo)
-
         self.root.mainloop()
 
-
-    def Widgets(self):
-        """
-        [description]
-        Function contenant tout les élément de la page principale du programme. Cette fonction rassemble tout les
-        boutons et object d'interraction.
-
-        :return:
-        """
-
+    def TopMenu(self):
         menubar = Menu(self.root)
 
         menu1 = Menu(menubar, tearoff=0)
@@ -91,20 +86,31 @@ class MainApp:
         menubar.add_cascade(label="Fichier", menu=menu1)
 
         menu2 = Menu(menubar, tearoff=0)
-        menu2.add_command(label="Couper", command=0)
-        menu2.add_command(label="Copier", command=0)
-        menu2.add_command(label="Coller", command=0)
-        menubar.add_cascade(label="Editer", menu=menu2)
+        menu2.add_command(label="Grille Tariffaire", command=0)
+        menu2.add_command(label="Véhicule", command=0)
+        menu2.add_command(label="Client", command=0)
+        menubar.add_cascade(label="Information", menu=menu2)
 
         menu3 = Menu(menubar, tearoff=0)
         menu3.add_command(label="A propos",
                           command=lambda: AbP.About_Page(self.root))
+        menu3.add_command(label="Help",
+                          command=lambda:0)
         menubar.add_cascade(label="Aide", menu=menu3)
 
         self.root.config(menu=menubar)
 
-        self.banner = tk.Frame(self.root, bg="#CFC7C5")
-        self.banner.place(relwidth=0.25, relheight=1)
+    def Widgets(self):
+        """
+        [description]
+        Function contenant tout les élément de la page principale du programme. Cette fonction rassemble tout les
+        boutons et object d'interraction.
+
+        :return:
+        """
+
+        self.banner = tk.Frame(self.root, bg="#0d0d0d")
+        self.banner.place(relx=0.01, rely=0.01, relwidth=0.25, relheight=0.9)
 
         tk.Button(self.banner, text='USER',
                   command=lambda: UP.User_Page(self.root)).place(relx=0.3,
