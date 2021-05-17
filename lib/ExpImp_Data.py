@@ -34,7 +34,7 @@ def Export_Page(master):
     print(filename)
     type(filename)
 
-    DT.export_bdd(filename, "D:\IPSA\Aero2\Programmation\Grand_Projet\Gestionnaire_Automobile\data")
+    DT.export_bdd(filename, "./data/export.csv")
 
     app.mainloop()
 

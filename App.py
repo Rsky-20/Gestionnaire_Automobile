@@ -64,9 +64,9 @@ class MainApp:
         # self.iconbitmap('./images/téléchargement (9).ico')
         self.Widgets()
 
-        self.photo = PhotoImage(file='./images/Service_img.gif')
+        self.photo = PhotoImage(file='./images/ABF8686-bewerkt.gif')
         espace_image = Canvas(self.root, bg='blue')
-        espace_image.place(rely=0.0, relx=0.25, relwidth=0.75, relheight=1, )
+        espace_image.place(rely=0.0, relx=0.0, relwidth=0.75, relheight=1, )
         espace_image.create_image(600, 550, image=self.photo)
 
         self.root.mainloop()
