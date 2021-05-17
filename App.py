@@ -110,7 +110,7 @@ class MainApp:
         """
 
         self.banner = tk.Frame(self.root, bg="#0d0d0d")
-        self.banner.place(relx=0.01, rely=0.01, relwidth=0.25, relheight=0.9)
+        self.banner.place(relx=0.001, rely=0.01, relwidth=0.25, relheight=0.988)
 
         tk.Button(self.banner, text='USER',
                   command=lambda: UP.User_Page(self.root)).place(relx=0.3,
