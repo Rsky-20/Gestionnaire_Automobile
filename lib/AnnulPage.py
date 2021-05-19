@@ -24,10 +24,10 @@ prix: {}
 """
 
 
-def valide(a, app):
+def valide(annulationInfo, app):
     MsgboxText = """
            Réservation à supprimer : {}
-           """.format(a)
+           """.format(annulationInfo)
     resp = messagebox.askokcancel(title="Voulez-vous Annuler cette réservation ?", message=MsgboxText)
 
     if resp == True:

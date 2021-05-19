@@ -3,14 +3,16 @@ from tkinter.ttk import Combobox
 from tkinter import messagebox
 import lib.DataTool as DT
 
-def valide(a, app):
+
+
+def valide(ajoutInfo, app):
     MsgboxText = """
-           Réservation à supprimer : {}
-           """.format(a)
-    resp = messagebox.askokcancel(title="Voulez-vous Annuler cette réservation ?", message=MsgboxText)
+           Véhicule à ajouter : {}
+           """.format(ajoutInfo)
+    resp = messagebox.askokcancel(title="Voulez-vous Ajouter ce véhicules ?", message=MsgboxText)
 
     if resp == True:
-        print(a)
+        print(ajoutInfo)
         app.destroy()
     else:
         app.destroy()
@@ -42,22 +44,22 @@ def AjoutVehi_Page(master):
         print("Vous avez sélectionné : '", select, "'")
 
         if selecType == "U":
-            Annul = presetUser.format("a","z","e","r","t","y", id1,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id1,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecType == "T":
-            Annul = presetUser.format("a","z","e","r","t","y", id2,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         else:
-            Annul = ""
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
-            return Annul
+            reserv = ""
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, presetVehicule.format("", "", "", "", "", "", "", "", "", "", ""))
+            return reserv
 
     def selecMarque(event):
         """
@@ -79,64 +81,64 @@ def AjoutVehi_Page(master):
 
         
         if selecMarque == "PEUGEOT":
-            Annul = presetUser.format("a","z","e","r","t","y", id1,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id1,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecMarque == "FERRARI":
-            Annul = presetUser.format("a","z","e","r","t","y", id2,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecMarque == "VOLKSWAGEN":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecMarque == "RENAULT":
-            Annul = presetUser.format("a","z","e","r","t","y", id4,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id4,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecMarque == "MERCEDES":
-            Annul = presetUser.format("a","z","e","r","t","y", id5,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id5,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecMarque == "PORSCHE":
-            Annul = presetUser.format("a","z","e","r","t","y", id6,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id6,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecMarque == "AUDI":
-            Annul = presetUser.format("a","z","e","r","t","y", id7,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id7,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecMarque == "TESLA":
-            Annul = presetUser.format("a","z","e","r","t","y", id8,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id8,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecMarque == "IVECO":
-            Annul = presetUser.format("a","z","e","r","t","y", id9,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id9,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         else:
-            Annul = ""
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
-            return Annul
+            reserv = ""
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, presetVehicule.format("", "", "", "", "", "", "", "", "", "", ""))
+            return reserv
 
     def selecGamme(event):
         """
@@ -157,70 +159,70 @@ def AjoutVehi_Page(master):
         print("Vous avez sélectionné : '", select, "'")
 
         if selecGamme == "SUV":
-            Annul = presetUser.format("a","z","e","r","t","y", id1,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id1,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecGamme == "BERLINE":
-            Annul = presetUser.format("a","z","e","r","t","y", id2,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecGamme == "MONOSPACE":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecGamme == "SPORTIVE":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecGamme == "ELECTRIQUE":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecGamme == "BENNE":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecGamme == "3 A 5":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecGamme == "6 A 10":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecGamme == "11 A 15":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif selecGamme == "20 A 25":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         else:
-            Annul = ""
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
-            return Annul
+            reserv = ""
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, presetVehicule.format("", "", "", "", "", "", "", "", "", "", ""))
+            return reserv
 
     def selecModel(event):
         """
@@ -241,64 +243,64 @@ def AjoutVehi_Page(master):
         print("Vous avez sélectionné : '", select, "'")
 
         if select == "PEUGEOT":
-            Annul = presetUser.format("a","z","e","r","t","y", id1,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id1,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif select == "FERRARI":
-            Annul = presetUser.format("a","z","e","r","t","y", id2,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif select == "VOLKSWAGEN":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif select == "RENAULT":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif select == "MERCEDES":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif select == "PORSCHE":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif select == "AUDI":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif select == "TESLA":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         elif select == "IVECO":
-            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return Annul
+            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, reserv)
+            return reserv
 
         else:
-            Annul = ""
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
-            return Annul
+            reserv = ""
+            vehiculeInfo.delete("1.0", "end")
+            vehiculeInfo.insert(tk.END, presetVehicule.format("", "", "", "", "", "", "", "", "", "", ""))
+            return reserv
 
 
 
@@ -309,10 +311,10 @@ def AjoutVehi_Page(master):
     app.resizable(False, False)
     app.title("Ajout Véhicle")
 
-    label = tk.LabelFrame(app, text="Sélectionnez l'utilisateur dont vous voulez annuler la réservation")
+    label = tk.LabelFrame(app, text="Sélectionnez l'utilisateur dont vous voulez reserver la réservation")
     label.place(relheight=1, relwidth=1)
 
-    BtnValide = tk.Button(label, text='Valider', command=lambda: valide(Annul, app))
+    BtnValide = tk.Button(label, text='Valider', command=lambda: valide(reserv, app))
     BtnValide.place(relx=0.3, rely=0.8, relheight=0.05, relwidth=0.4)
 
     listeType = ["Type a selectionner", "U", "T"]
@@ -345,6 +347,6 @@ def AjoutVehi_Page(master):
     listeCombo5.place(relx=0.3, rely=0.3, relheight=0.05, relwidth=0.4)
     listeCombo5.bind("<<ComboboxSelected>>", selecCarbu)
 
-    UserInfo = tk.Text(label)
-    UserInfo.insert(tk.END,presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
-    UserInfo.place(relx=0.3, rely=0.15, relheight=0.6, relwidth=0.4)
+    vehiculeInfo = tk.Text(label)
+    vehiculeInfo.insert(tk.END,presetVehicule.format("", "", "", "", "", "", "", "", "", "", ""))
+    vehiculeInfo.place(relx=0.3, rely=0.15, relheight=0.6, relwidth=0.4)
