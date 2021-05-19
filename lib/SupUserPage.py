@@ -1,7 +1,7 @@
 import tkinter as tk
 
 
-def SupUser_Page(master):
+def sup_user_page(master):
     """
     [Description]
 

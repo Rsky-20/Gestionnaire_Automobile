@@ -4,7 +4,7 @@ from tkinter import messagebox
 import lib.DataTool as DT
 
 listeUser = ["Selectionner un utilisateur"] + DT.InformationPersonnel(DT.dfc)
-Annul = ""
+annul = ""
 presetUser = """
 Nom: {}
 Prenom: {}
@@ -25,10 +25,10 @@ prix: {}
 
 
 def valide(annulationInfo, app):
-    MsgboxText = """
+    msgboxText = """
            Réservation à supprimer : {}
            """.format(annulationInfo)
-    resp = messagebox.askokcancel(title="Voulez-vous Annuler cette réservation ?", message=MsgboxText)
+    resp = messagebox.askokcancel(title="Voulez-vous annuler cette réservation ?", message=msgboxText)
 
     if resp == True:
         DT.annuler_location(DT.dfc, DT.dfv, id)
@@ -37,7 +37,7 @@ def valide(annulationInfo, app):
         app.destroy()
 
 
-def Annul_Page(master):
+def annul_page(master):
     """
     [Description]
 
@@ -45,7 +45,7 @@ def Annul_Page(master):
     :return:
     """
 
-    def UserSelect(event):
+    def user_select(event):
         """
         [description]
         Fonction permettant de choisir la page à ouvrir parmi un menu déroulant
@@ -53,7 +53,7 @@ def Annul_Page(master):
         :return:
         """
 
-        global Annul, listeUser
+        global annul, listeUser
 
         # Obtenir l'élément sélectionné
         select = listeCombo1.get()
@@ -62,41 +62,41 @@ def Annul_Page(master):
 
         #print(listeUser)
         if select != "Selectionner un utilisateur":
-            LUser = select.split(" ")
-            print(LUser)
+            selectedUser = select.split(" ")
+            print(selectedUser)
 
-            User = DT.aff_client(DT.dfc, LUser)
+            user = DT.aff_client(DT.dfc, selectedUser)
 
-            Annul = presetUser.format(User[0], User[1], User[3], "r", "t", "y", User[4], "u", "i", "o", User[-1])
+            annul = presetUser.format(user[0], user[1], user[3], "r", "t", "y", user[4], "u", "i", "o", user[-1])
 
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, Annul)
-            return User[4]
+            userInfo.delete("1.0", "end")
+            userInfo.insert(tk.END, annul)
+            return user[4]
         else:
-            Annul = ""
-            UserInfo.delete("1.0", "end")
-            UserInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
-            return Annul
+            annul = ""
+            userInfo.delete("1.0", "end")
+            userInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
+            return annul
 
     app = tk.Toplevel(master)
     app.geometry('920x640+500+125')
     app.attributes("-toolwindow", 1)# Supprime les boutons Réduire/Agrandir
     app.transient(master)
     app.resizable(False, False)
-    app.title("Annulation")
+    app.title("annulation")
 
     label = tk.LabelFrame(app, text="Sélectionnez l'utilisateur dont vous voulez annuler la réservation")
     label.place(relheight=1, relwidth=1)
 
-    BtnValide = tk.Button(label, text='Valider', command=lambda: valide(Annul, app))
+    BtnValide = tk.Button(label, text='Valider', command=lambda: valide(annul, app))
     BtnValide.place(relx=0.3, rely=0.8, relheight=0.05, relwidth=0.4)
 
     listeCombo1 = Combobox(label, height=200, width=27, values=listeUser)
     listeCombo1.current(0)
     listeCombo1.place(relx=0.3, rely=0.1, relheight=0.05, relwidth=0.4)
-    listeCombo1.bind("<<ComboboxSelected>>", UserSelect)
+    listeCombo1.bind("<<ComboboxSelected>>", user_select)
 
-    UserInfo = tk.Text(label)
-    UserInfo.insert(tk.END,presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
-    UserInfo.place(relx=0.3, rely=0.15, relheight=0.6, relwidth=0.4)
+    userInfo = tk.Text(label)
+    userInfo.insert(tk.END,presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
+    userInfo.place(relx=0.3, rely=0.15, relheight=0.6, relwidth=0.4)
 

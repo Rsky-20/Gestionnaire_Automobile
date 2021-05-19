@@ -1,7 +1,7 @@
 import tkinter as tk
 
 
-def Reserv_Page(master):
+def reserv_page(master):
     """
     [Description]
 

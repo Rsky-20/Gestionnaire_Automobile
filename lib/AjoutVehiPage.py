@@ -17,7 +17,7 @@ def valide(ajoutInfo, app):
     else:
         app.destroy()
 
-def AjoutVehi_Page(master):
+def ajout_vehi_page(master):
     """
     [Description]
 

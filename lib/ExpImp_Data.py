@@ -5,7 +5,7 @@ from PIL import ImageTk
 import lib.DataTool as DT
 
 
-def Export_Page(master):
+def export_page(master):
     """
     [Description]
     Fonction permettant de générer la page Export data.
@@ -19,18 +19,18 @@ def Export_Page(master):
     app.w, app.h = app.winfo_screenwidth(), app.winfo_screenheight()
     app.title("Export DataBase")
 
-    File = StringVar()
-    File.set("Pas de fichier pour l'instant")
+    file = StringVar()
+    file.set("Pas de fichier pour l'instant")
 
     # Création d'un Label nommé monAffichage
-    screen = Label(app, textvariable=File, width=70)
+    screen = Label(app, textvariable=file, width=70)
     screen.pack()
 
     # Recherche de l'adresse du fichier-image voulu
     filename = askopenfilename(title="Importer une BD", filetypes=[('json files', '.json'), ('all files', '.*')])
 
     # Mise à jour de monFichier
-    File.set(filename)
+    file.set(filename)
     print(filename)
     type(filename)
 
@@ -39,7 +39,7 @@ def Export_Page(master):
     app.mainloop()
 
 
-def Import_Page(master):
+def import_page(master):
     """
     [Description]
     Fonction permettant de générer la page Import data.
@@ -59,18 +59,18 @@ def Import_Page(master):
     # Création de la fenêtre et des objets associés la fenêtre
     # - - - - - - - - - - - - - - - - - -
 
-    File = StringVar()
-    File.set("Pas de fichier pour l'instant")
+    file = StringVar()
+    file.set("Pas de fichier pour l'instant")
 
     # Création d'un Label nommé monAffichage
-    screen = Label(app, textvariable=File, width=70)
+    screen = Label(app, textvariable=file, width=70)
     screen.pack()
 
     # Recherche de l'adresse du fichier-image voulu
     filename = askopenfilename(title="Importer une BD", filetypes=[('json files', '.json'), ('all files', '.*')])
 
     # Mise à jour de monFichier
-    File.set(filename)
+    file.set(filename)
 
 
 

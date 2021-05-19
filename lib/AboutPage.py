@@ -3,7 +3,7 @@ from tkinter import *
 from PIL import Image
 
 
-def About_Page(master):
+def about_page(master):
     """
     [Description]
     Fonction permettant de générer la page "à propos".

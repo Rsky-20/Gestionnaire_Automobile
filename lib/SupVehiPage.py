@@ -16,7 +16,7 @@ def valide(idVehicule, app):
         app.destroy()
 
 
-def SupVehi_Page(master):
+def sup_vehi_page(master):
     """
     [Description]
 
@@ -35,6 +35,6 @@ def SupVehi_Page(master):
     tk.LabelFrame(app, text="Nom").place(relx=0.05, rely=0.045, relheight=0.09, relwidth=0.2)
     tk.Entry(app, width=14, textvariable=varID).place(relx=0.06, rely=0.07, relheight=0.05, relwidth=0.18)
 
-    BtnValide = tk.Button(app, text='Valider',
+    btnValide = tk.Button(app, text='Valider',
                           command=lambda: valide(varID.get(), app))
-    BtnValide.place(relx=0.3, rely=0.55, relheight=0.05, relwidth=0.4)
+    btnValide.place(relx=0.3, rely=0.55, relheight=0.05, relwidth=0.4)
