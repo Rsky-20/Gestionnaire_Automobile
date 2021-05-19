@@ -301,6 +301,9 @@ def AjoutVehi_Page(master):
             vehiculeInfo.delete("1.0", "end")
             vehiculeInfo.insert(tk.END, presetVehicule.format("", "", "", "", "", "", "", "", "", "", ""))
             return reserv
+        
+    def selecCarbu():
+        pass
 
 
 

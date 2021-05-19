@@ -166,22 +166,23 @@ class MainApp:
         self.banner.place(relx=0.001, rely=0.01, relwidth=0.25, relheight=0.988)
 
         tk.Button(self.banner, text='USER',
-                  command=lambda: UP.User_Page(self.root)).place(relx=0.3,
+                  command=lambda: UP.User_Page(self.root), bg="lightgrey").place(relx=0.3,
                                                                  rely=0.2, relheight=0.05, relwidth=0.4)
         tk.Button(self.banner, text='RESERVATION',
-                  command=lambda: RP.Reserv_Page(self.root)).place(relx=0.3, rely=0.3,
+                  command=lambda: RP.Reserv_Page(self.root), bg="lightgrey").place(relx=0.3, rely=0.3,
                                                                    relheight=0.05, relwidth=0.4)
         tk.Button(self.banner, text='ANNULATION',
-                                    command=lambda: AnP.Annul_Page(self.root)).place(
+                                    command=lambda: AnP.Annul_Page(self.root), bg="lightgrey").place(
             relx=0.3, rely=0.4, relheight=0.05,
             relwidth=0.4)
         self.admin = tk.Button(self.banner, text='ADMIN',
-                               command=self.admin).place(relx=0.3, rely=0.55, relheight=0.05, relwidth=0.4)
+                               command=self.admin, bg="lightgrey").place(relx=0.3, rely=0.55, relheight=0.05, relwidth=0.4)
 
         self.listeAdmin = ["Selectionner une action", "Ajout Véhicule", "Suppression Véhicule",
                            "Suppréssion Utilisateur"]
         self.listeCombo1 = Combobox(self.banner, height=200, width=27, values=self.listeAdmin)
         self.listeCombo1.current(0)
+        self.listeCombo1.configure(bg="lightgrey")
         self.listeCombo1.place(
             relx=0.3, rely=0.6, relheight=0.05, relwidth=0.4)
         self.listeCombo1.bind("<<ComboboxSelected>>", self.admin)
