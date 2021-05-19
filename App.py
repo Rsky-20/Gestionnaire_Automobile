@@ -182,7 +182,6 @@ class MainApp:
                            "Suppréssion Utilisateur"]
         self.listeCombo1 = Combobox(self.banner, height=200, width=27, values=self.listeAdmin)
         self.listeCombo1.current(0)
-        self.listeCombo1.configure(bg="lightgrey")
         self.listeCombo1.place(
             relx=0.3, rely=0.6, relheight=0.05, relwidth=0.4)
         self.listeCombo1.bind("<<ComboboxSelected>>", self.admin)
