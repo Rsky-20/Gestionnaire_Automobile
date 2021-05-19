@@ -5,6 +5,8 @@ def run(master):
     app = tk.Toplevel(master)
     app.title("Grille tarifiare")
     app.geometry("400x250+500+150")
+    app.attributes("-toolwindow", 1)  # Supprime les boutons Réduire/Agrandir
+    app.transient(master)
     app.resizable(False, False)
 
     frame = tk.Frame(app)

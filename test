@@ -1,53 +1,163 @@
 import tkinter as tk
+from tkinter.ttk import Combobox
+from tkinter import messagebox
+import lib.DataTool as DT
 
-from tkinter import *
+listeUser = ["Selectionner un utilisateur"] + DT.InformationPersonnel(DT.dfc)
+reservation = ""
+presetReservation = """
+------------Information client-----------
 
-import lib.packages as pkg
+Nom: {}
+Prenom: {}
+Numero permis: {}
 
-new_screen = pkg.User()
+---------Information reservation---------
 
-class App(tk.Tk):
-
-       def __init__(self):
-           super().__init__()
-           self.w, self.h = self.winfo_screenwidth(), self.winfo_screenheight()
-           self.title("Gestionnaire Automobile")
-           self.geometry('1920x1080')
-           #self.iconbitmap('./image/téléchargement (9).ico')
-           self.Widgets()
-
-
-
-       def Widgets(self):
-           self.banner = tk.Frame(self, bg="black")
-           self.banner.place(relwidth=0.25,relheight=1)
-
-           self.user = tk.Button(self.banner, text='USER').place(relx=0.3, rely=0.2, relheight=0.05, relwidth=0.4)
-
-           self.reservation = tk.Button(self.banner, text='RESERVATION').place(relx=0.3, rely=0.3, relheight=0.05,
-                                                                               relwidth=0.4)
-
-           self.annulation = tk.Button(self.banner, text='ANNULATION').place(relx=0.3, rely=0.4, relheight=0.05,
-                                                                             relwidth=0.4)
-
-           self.admin = tk.Button(self.banner, command=self.start_onglet , text='ADMIN').place(relx=0.3, rely=0.55, relheight=0.05,
-                                                                             relwidth=0.4)
-
-           self.listeAdmin = tk.Listbox(self.banner, height=10, width=10)
-           self.listeAdmin.place(relx=0.3, rely=0.60, relheight=0.07,relwidth=0.4)
-
-           for element in ["Ajout Véhicule", "Suppression Véhicule", "Suppréssion Utilisateur"]:
-               self.listeAdmin.insert(END, element)
-
-       def start_onglet(self):
-           return None
+date de début de réservation: {}
+date de fin de réservation: {}
+id vehicle: {}
+véhicule: {}
+catégorie: {}
+assurance: {}
+prix: {}
+"""
 
 
-       def open_UserPage(self):
-           self.load = new_screen.page
-           self.load.wait_window()
+def valide(reservationInfo, app):
+    msgboxText = """
+           Réservation à supprimer : {}
+           """.format(None)
+    resp = messagebox.askokcancel(title="Voulez-vous annuler cette réservation ?", message=msgboxText)
 
+    if resp == True:
+        #DT.louer(DT.dfv, DT.dfc, num_permis, id, date_debut, date_fin, prix)
+        app.destroy()
+    else:
+        app.destroy()
 
-if __name__ == '__main__':
-       app = App()
-       app.mainloop()
+def reserv_page(master):
+    """
+    [Description]
+
+    :param master: master se réfaire à la page parent
+    :return:
+    """
+
+    app = tk.Toplevel(master)
+    app.geometry('920x640+500+125')
+    app.attributes("-toolwindow", 1)# Supprime les boutons Réduire/Agrandir
+    app.transient(master)
+    app.resizable(False, False)
+    app.title("Réservation")
+    
+    def user_select(event):
+        """
+        [description]
+        Fonction permettant de choisir la page à ouvrir parmi un menu déroulant
+
+        :return:
+        """
+
+        global annul, listeUser
+
+        # Obtenir l'élément sélectionné
+        select = listeCombo1.get()
+        print("Vous avez sélectionné : '", select, "'")
+        type(select)
+
+        #print(listeUser)
+        if select != "Selectionner un utilisateur":
+            selectedUser = select.split(" ")
+            print(selectedUser)
+
+            user = DT.aff_client(DT.dfc, selectedUser)
+
+            annul = presetReservation.format(user[0], user[1], user[3], None, None, None, None, None, None, None, None)
+
+            userInfo.delete("1.0", "end")
+            userInfo.insert(tk.END, annul)
+            return user[4]
+        else:
+            annul = ""
+            userInfo.delete("1.0", "end")
+            userInfo.insert(tk.END, presetReservation.format("", "", "", "", "", "", "", "", "", "", ""))
+            return annul
+        
+    label = tk.LabelFrame(app, text="Sélectionnez l'utilisateur dont vous voulez annuler la réservation")
+    label.place(relheight=1, relwidth=1)
+
+    BtnValide = tk.Button(label, text='Valider', command=lambda: valide(annul, app))
+    BtnValide.place(relx=0.3, rely=0.8, relheight=0.05, relwidth=0.4)
+
+    listeCombo1 = Combobox(label, height=200, width=27, values=listeUser)
+    listeCombo1.current(0)
+    listeCombo1.place(relx=0.1, rely=0.1, relheight=0.05, relwidth=0.4)
+    listeCombo1.bind("<<ComboboxSelected>>", user_select)
+        
+    userInfo = tk.Text(label)
+    userInfo.insert(tk.END,presetReservation.format("", "", "", "", "", "", "", "", "", "", ""))
+    userInfo.place(relx=0.5, rely=0.1, relheight=0.6, relwidth=0.4)
+    
+    # Combo Box Categorie voiture
+    def type_vehicule():
+        """
+        [description]
+        Fonction permettant de choisir le type de véhicule parmi un menu déroulant
+
+        :return:
+        """
+        
+        # Obtenir l'élément sélectionné
+        select = listeCombo1.get()
+        
+        print("Vous avez sélectionné : '", select, "'")
+
+        if select == "Type Tourisme [T]":
+            labelGammeT = tk.LabelFrame(app, text="Gamme").place(
+                relx=0.05, rely=0.045, relheight=0.1, relwidth=0.2)
+            listeCategorie = ["SUV", "BERLINE", "MONOSPACE", "SPORTIVE", "ELECTRIQUE"]
+            listeCombo1 = Combobox(labelGammeT, height=200, width=27, values=listeCategorie)
+            listeCombo1.current(0)
+            listeCombo1.place(relx=0.3, rely=0.6, relheight=0.05, relwidth=0.4)
+            listeCombo1.bind("<<ComboboxSelected>>", type_vehicule)
+    
+            
+            
+            
+            
+        elif select == "Type Utilitaire  [U]":
+            labelGammeU = tk.LabelFrame(app, text="Gamme").place(
+                relx=0.05, rely=0.045, relheight=0.09, relwidth=0.2)
+        else:
+            print("ERROR: no Type fund")
+    
+    listeType = ["Type Tourisme [T]", "Type Utilitaire  [U]"]
+    listeCombo1 = Combobox(app, height=200, width=27, values=listeType)
+    listeCombo1.current(0)
+    listeCombo1.place(relx=0.3, rely=0.6, relheight=0.05, relwidth=0.4)
+    listeCombo1.bind("<<ComboboxSelected>>", type_vehicule)
+    
+    
+    varDateDebut = tk.StringVar()
+    tk.LabelFrame(app, text="Date de début").place(
+        relx=0.1, rely=0.3, relheight=0.09, relwidth=0.2)
+    tk.Entry(app, width=14, textvariable=varDateDebut).place(
+        relx=0.06, rely=0.07, relheight=0.05, relwidth=0.18)
+
+    varDateFin = tk.StringVar()
+    tk.LabelFrame(app, text="Date de fins").place(
+        relx=0.1, rely=0.4, relheight=0.09, relwidth=0.2)
+    tk.Entry(app, width=14, textvariable=varDateFin).place(
+        relx=0.06, rely=0.07, relheight=0.05, relwidth=0.18)
+    
+    radioValue = tk.IntVar() 
+    radioOui = tk.Radiobutton(app, text='OUI',variable=radioValue, value="OUI").place(
+        relx=0.1, rely=0.5, relheight=0.05, relwidth=0.4)
+    radioNon = tk.Radiobutton(app, text='NON',variable=radioValue, value="NON").place(
+        relx=0.2, rely=0.5, relheight=0.05, relwidth=0.4)
+    
+    labelRadio = tk.Label(app, textvariable=radioValue).place(
+        relx=0.2, rely=0.5, relheight=0.05, relwidth=0.4)
+
+        

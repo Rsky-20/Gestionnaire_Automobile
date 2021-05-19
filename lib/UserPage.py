@@ -14,6 +14,8 @@ def valide(Nom, Prenom, Age, NumPerm, AdressMail, Tel, app):
     :param Tel:
     :return:
     """
+    print(type(Nom),type(Prenom),type(Age),type(NumPerm))
+
     msgboxText = """
     - Nom : {}
     - Prénom : {}
@@ -21,12 +23,12 @@ def valide(Nom, Prenom, Age, NumPerm, AdressMail, Tel, app):
     - Numero de permis : {}
     - Numero de telephone : {}
     - Adresse mail : {}
-    """.format(Nom, Prenom, Age, NumPerm, AdressMail, Tel)
+    """.format(Nom, Prenom, Age, int(NumPerm), AdressMail, Tel)
     resp = messagebox.askokcancel(
         title="Voulez-vous rajouter cet utilisateur ?", message=msgboxText)
 
     if resp:
-        DT.ajouter_client("./data/clients.json", Nom, Prenom, Age, NumPerm)
+        DT.ajouter_client(DT.dfc, Nom, Prenom, Age, NumPerm)
         app.destroy()
     else:
         app.destroy()
@@ -68,7 +70,7 @@ def user_page(master):
              resolution=1, variable=varAge).place(
                  relx=0.06, rely=0.27, relheight=0.062, relwidth=0.4)
 
-    varNumPerm = tk.StringVar()
+    varNumPerm = tk.IntVar()
     tk.LabelFrame(app, text="Numero de permis").place(
         relx=0.05, rely=0.345, relheight=0.09, relwidth=0.2)
     tk.Entry(app, width=14, textvariable=varNumPerm).place(
@@ -85,6 +87,9 @@ def user_page(master):
         relx=0.35, rely=0.145, relheight=0.09, relwidth=0.2)
     tk.Entry(app, width=14, textvariable=varTel).place(
         relx=0.36, rely=0.17, relheight=0.05, relwidth=0.18)
+    
+    print(type(varNom),type(varPrenom),type(varAge),type(varNumPerm))
+
 
     btnValide = tk.Button(app, text='Valider', command=lambda: valide(
         varNom.get(), varPrenom.get(), varAge.get(),
