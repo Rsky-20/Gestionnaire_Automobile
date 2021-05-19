@@ -210,6 +210,12 @@ def AjoutVehi_Page(master):
             UserInfo.insert(tk.END, Annul)
             return Annul
 
+        elif selecGamme == "20 A 25":
+            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            UserInfo.delete("1.0", "end")
+            UserInfo.insert(tk.END, Annul)
+            return Annul
+
         else:
             Annul = ""
             UserInfo.delete("1.0", "end")
