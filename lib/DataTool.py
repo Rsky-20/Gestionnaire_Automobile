@@ -2,9 +2,9 @@ import pandas as pa
 import json
 import datetime as dt
 
-dfc = pa.read_json('../data/clients.json')
-dft = pa.read_json('../data/tarifs.json')
-dfv = pa.read_json('../data/vehicules.json')
+dfc = pa.read_json('./data/clients.json')
+dft = pa.read_json('./data/tarifs.json')
+dfv = pa.read_json('./data/vehicules.json')
 
 def enregistrer_json(df, path):
     """
@@ -227,7 +227,7 @@ def aff_vehicule(dfv, id):
     return dfv[mask].values[0].tolist()
 
 # Afficher le tarif au utilisateur
-def afficher_tarifs(dft):
+def aff_tarifs():
     return dft.to_string(index=False)
 
 if __name__=='__main__':

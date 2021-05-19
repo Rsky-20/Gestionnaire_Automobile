@@ -41,39 +41,18 @@ import lib.SupUserPage as SUP
 import lib.SupVehiPage as SVP
 import lib.UserPage as UP
 import lib.ExpImp_Data as EIData
+import lib.grille_tarifaire as gt
 
 
 # -----------------------------------------------Class and process-----------------------------------------------------#
 
-class MainApp:
-    """
-    [description]
-    MainApp est la class permettant de générer, charger et instancier la base du programme de gestion. Cette class
-    contient la base graphique.
+class ToolBar:
     """
 
-    def __init__(self):
-        super().__init__()
-        self.root = tk.Tk()
-        self.root.wm_attributes('-transparentcolor', 'red')
-        self.w, self.h = self.root.winfo_screenwidth(), self.root.winfo_screenheight()
-        self.root.title("Gestionnaire Automobile")
-        self.root.geometry('1920x1080')
-        self.root.resizable(True, True)
-        #self.root.bind("<Escape>", lambda: self.QuitApp)
-        #Menu : Fichier
+    """
+    def __init__(self,master):
+        self.root = master
         self.TopMenu()
-
-        #Background image
-        self.image = PhotoImage(file='./images/ABF8686-bewerkt.gif')
-        self.canvas = Canvas(self.root, width=self.w, height=self.h)
-        self.canvas.place(rely=0.0, relx=0.0, relwidth=1, relheight=1)
-        self.canvas.create_image(0, 0, image=self.image, anchor=NW, )
-
-        # self.iconbitmap('./images/téléchargement (9).ico')
-        self.Widgets()
-
-        self.root.mainloop()
 
     def TopMenu(self):
         menubar = Menu(self.root)
@@ -86,19 +65,87 @@ class MainApp:
         menubar.add_cascade(label="Fichier", menu=menu1)
 
         menu2 = Menu(menubar, tearoff=0)
-        menu2.add_command(label="Grille Tariffaire", command=0)
-        menu2.add_command(label="Véhicule", command=0)
-        menu2.add_command(label="Client", command=0)
-        menubar.add_cascade(label="Information", menu=menu2)
+        menu2.add_command(label="Grille Tariffaires", command=lambda: gt.run(self.root))#self.GrilleTarrifaires)
+        menu2.add_command(label="Véhicules", command=lambda: self.Vehicules)
+        menu2.add_command(label="Clients", command=lambda: self.Clients)
+        menubar.add_cascade(label="Informations", menu=menu2)
 
         menu3 = Menu(menubar, tearoff=0)
         menu3.add_command(label="A propos",
                           command=lambda: AbP.About_Page(self.root))
-        menu3.add_command(label="Help",
+        menu3.add_command(label="? Aide ?",
                           command=lambda:0)
         menubar.add_cascade(label="Aide", menu=menu3)
 
         self.root.config(menu=menubar)
+
+    def QuitApp(self):
+        """
+        [description]
+
+        :return:
+        """
+        resp = messagebox.askokcancel(title="Voulez-vous quittez l'application ?")
+        if resp == True:
+            DT.enregistrer_json(DT.dfc, "./data/clients.json")
+            DT.enregistrer_json(DT.dft, "./data/tarifs.json")
+            DT.enregistrer_json(DT.dfv, "./data/vehicules.json")
+            self.root.destroy()
+        else:
+            pass
+
+
+    def GrilleTarrifaires(self):
+        MsgboxText = """
+        {}
+        """.format(DT.aff_tarifs())
+        print(MsgboxText)
+        messagebox.showinfo(title="Grille Tarrifaires", message=MsgboxText)
+
+    def Vehicules(self):
+        MsgboxText = """
+        {}
+        """.format(0)
+        print(MsgboxText)
+        messagebox.showinfo(title="Vehicules", message=MsgboxText)
+
+    def Clients(self):
+        MsgboxText = """
+        {}
+        """.format(0)
+        print(MsgboxText)
+        messagebox.showinfo(title="Clients", message=MsgboxText)
+
+class MainApp:
+    """
+    [description]
+    MainApp est la class permettant de générer, charger et instancier la base du programme de gestion. Cette class
+    contient la base graphique.
+    """
+
+    def __init__(self):
+        #super().__init__()
+        self.root = tk.Tk()
+        self.root.wm_attributes('-transparentcolor', 'red')
+        self.w, self.h = self.root.winfo_screenwidth(), self.root.winfo_screenheight()
+        self.root.title("Gestionnaire Automobile - Lock'Auto")
+        self.root.geometry('1920x1080')
+        self.root.resizable(True, True)
+        self.root.bind("<Escape>", command=)
+        #Menu : Fichier
+        #self.TopMenu()
+        ToolBar(self.root)
+
+        #Background image
+        self.image = PhotoImage(file='./images/ABF8686-bewerkt.gif')
+        self.canvas = Canvas(self.root, width=self.w, height=self.h)
+        self.canvas.place(rely=0.0, relx=0.0, relwidth=1, relheight=1)
+        self.canvas.create_image(0, 0, image=self.image, anchor=NW, )
+
+        # self.iconbitmap('./images/téléchargement (9).ico')
+        self.Widgets()
+
+        self.root.mainloop()
 
     def Widgets(self):
         """
@@ -151,21 +198,6 @@ class MainApp:
             SVP.SupVehi_Page(self.root)
         elif self.select == "Suppréssion Utilisateur":
             SUP.SupUser_Page(self.root)
-
-    def QuitApp(self):
-        """
-        [description]
-
-        :return:
-        """
-        resp = messagebox.askokcancel(title="Voulez-vous rajouter cet utilisateur ?")
-        if resp == True:
-            DT.enregistrer_json(DT.dfc, "./data/clients.json")
-            DT.enregistrer_json(DT.dft, "./data/tarifs.json")
-            DT.enregistrer_json(DT.dfv, "./data/vehicules.json")
-            self.root.destroy()
-        else:
-            pass
 
 # -------------------------------------------Run & Start server program----------------------------------------------- #
 
