@@ -131,7 +131,6 @@ class MainApp:
         self.root.title("Gestionnaire Automobile - Lock'Auto")
         self.root.geometry('1920x1080')
         self.root.resizable(True, True)
-        self.root.bind("<Escape>", command=)
         #Menu : Fichier
         #self.TopMenu()
         ToolBar(self.root)
