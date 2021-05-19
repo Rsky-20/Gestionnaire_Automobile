@@ -16,3 +16,6 @@ def Reserv_Page(master):
     app.resizable(False, False)
     app.title("Réservation")
 
+    def
+
+def valid():
