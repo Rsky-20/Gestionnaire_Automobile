@@ -226,6 +226,10 @@ def aff_vehicule(dfv, id):
     mask = dfv["id"] == id
     return dfv[mask].values[0].tolist()
 
+# Afficher le tarif au utilisateur
+def afficher_tarifs(dft):
+    return dft.to_string(index=False)
+
 if __name__=='__main__':
     #TESTS
     print(aff_vehicule(dfv, 41))
