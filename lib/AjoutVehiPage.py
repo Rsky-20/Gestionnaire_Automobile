@@ -31,7 +31,7 @@ def AjoutVehi_Page(master):
         :return:
         """
 
-        global selec
+        global selecType
 
         id1 = 1
         id2 = 2
@@ -41,13 +41,13 @@ def AjoutVehi_Page(master):
         select = listeCombo1.get()
         print("Vous avez sélectionné : '", select, "'")
 
-        if select == "U":
+        if selecType == "U":
             Annul = presetUser.format("a","z","e","r","t","y", id1,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "T":
+        elif selecType == "T":
             Annul = presetUser.format("a","z","e","r","t","y", id2,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
@@ -67,7 +67,7 @@ def AjoutVehi_Page(master):
         :return:
         """
 
-        global selec
+        global selecMarque
 
         id1 = 1
         id2 = 2
@@ -78,55 +78,55 @@ def AjoutVehi_Page(master):
         print("Vous avez sélectionné : '", select, "'")
 
         
-        if select == "PEUGEOT":
+        if selecMarque == "PEUGEOT":
             Annul = presetUser.format("a","z","e","r","t","y", id1,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "FERRARI":
+        elif selecMarque == "FERRARI":
             Annul = presetUser.format("a","z","e","r","t","y", id2,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "VOLKSWAGEN":
+        elif selecMarque == "VOLKSWAGEN":
             Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "RENAULT":
+        elif selecMarque == "RENAULT":
             Annul = presetUser.format("a","z","e","r","t","y", id4,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "MERCEDES":
+        elif selecMarque == "MERCEDES":
             Annul = presetUser.format("a","z","e","r","t","y", id5,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "PORSCHE":
+        elif selecMarque == "PORSCHE":
             Annul = presetUser.format("a","z","e","r","t","y", id6,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "AUDI":
+        elif selecMarque == "AUDI":
             Annul = presetUser.format("a","z","e","r","t","y", id7,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "TESLA":
+        elif selecMarque == "TESLA":
             Annul = presetUser.format("a","z","e","r","t","y", id8,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "IVECO":
+        elif selecMarque == "IVECO":
             Annul = presetUser.format("a","z","e","r","t","y", id9,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
@@ -146,7 +146,7 @@ def AjoutVehi_Page(master):
         :return:
         """
 
-        global selec
+        global selecGamme
 
         id1 = 1
         id2 = 2
@@ -156,55 +156,61 @@ def AjoutVehi_Page(master):
         select = listeCombo1.get()
         print("Vous avez sélectionné : '", select, "'")
 
-        if select == "PEUGEOT":
+        if selecGamme == "SUV":
             Annul = presetUser.format("a","z","e","r","t","y", id1,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "FERRARI":
+        elif selecGamme == "BERLINE":
             Annul = presetUser.format("a","z","e","r","t","y", id2,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "VOLKSWAGEN":
+        elif selecGamme == "MONOSPACE":
             Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "RENAULT":
+        elif selecGamme == "SPORTIVE":
             Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "MERCEDES":
+        elif selecGamme == "ELECTRIQUE":
             Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "PORSCHE":
+        elif selecGamme == "BENNE":
             Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "AUDI":
+        elif selecGamme == "3 A 5":
             Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "TESLA":
+        elif selecGamme == "6 A 10":
             Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
             return Annul
 
-        elif select == "IVECO":
+        elif selecGamme == "11 A 15":
+            Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            UserInfo.delete("1.0", "end")
+            UserInfo.insert(tk.END, Annul)
+            return Annul
+
+        elif selecGamme == "20 A 25":
             Annul = presetUser.format("a","z","e","r","t","y", id3,"u","i","o","p")
             UserInfo.delete("1.0", "end")
             UserInfo.insert(tk.END, Annul)
