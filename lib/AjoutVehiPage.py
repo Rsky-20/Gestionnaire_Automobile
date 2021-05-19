@@ -44,22 +44,22 @@ def AjoutVehi_Page(master):
         print("Vous avez sélectionné : '", select, "'")
 
         if selecType == "U":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id1,"u","i","o","p")
+            reservType = presetVehicule.format("a","z","e","r","t","y", id1,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservType)
+            return reservType
 
         elif selecType == "T":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
+            reservType = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservType)
+            return reservType
 
         else:
-            reserv = ""
+            reservType = ""
             vehiculeInfo.delete("1.0", "end")
             vehiculeInfo.insert(tk.END, presetVehicule.format("", "", "", "", "", "", "", "", "", "", ""))
-            return reserv
+            return reservType
 
     def selecMarque(event):
         """
@@ -81,64 +81,64 @@ def AjoutVehi_Page(master):
 
         
         if selecMarque == "PEUGEOT":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id1,"u","i","o","p")
+            reservMarque = presetVehicule.format("a","z","e","r","t","y", id1,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservMarque)
+            return reservMarque
 
         elif selecMarque == "FERRARI":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
+            reservMarque = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservMarque)
+            return reservMarque
 
         elif selecMarque == "VOLKSWAGEN":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservMarque = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservMarque)
+            return reservMarque
 
         elif selecMarque == "RENAULT":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id4,"u","i","o","p")
+            reservMarque = presetVehicule.format("a","z","e","r","t","y", id4,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservMarque)
+            return reservMarque
 
         elif selecMarque == "MERCEDES":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id5,"u","i","o","p")
+            reservMarque = presetVehicule.format("a","z","e","r","t","y", id5,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservMarque)
+            return reservMarque
 
         elif selecMarque == "PORSCHE":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id6,"u","i","o","p")
+            reservMarque = presetVehicule.format("a","z","e","r","t","y", id6,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservMarque)
+            return reservMarque
 
         elif selecMarque == "AUDI":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id7,"u","i","o","p")
+            reservMarque = presetVehicule.format("a","z","e","r","t","y", id7,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservMarque)
+            return reservMarque
 
         elif selecMarque == "TESLA":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id8,"u","i","o","p")
+            reservMarque = presetVehicule.format("a","z","e","r","t","y", id8,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservMarque)
+            return reservMarque
 
         elif selecMarque == "IVECO":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id9,"u","i","o","p")
+            reservMarque = presetVehicule.format("a","z","e","r","t","y", id9,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservMarque)
+            return reservMarque
 
         else:
-            reserv = ""
+            reservMarque = ""
             vehiculeInfo.delete("1.0", "end")
             vehiculeInfo.insert(tk.END, presetVehicule.format("", "", "", "", "", "", "", "", "", "", ""))
-            return reserv
+            return reservMarque
 
     def selecGamme(event):
         """
@@ -159,70 +159,70 @@ def AjoutVehi_Page(master):
         print("Vous avez sélectionné : '", select, "'")
 
         if selecGamme == "SUV":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id1,"u","i","o","p")
+            reservGamme = presetVehicule.format("a","z","e","r","t","y", id1,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservGamme)
+            return reservGamme
 
         elif selecGamme == "BERLINE":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
+            reservGamme = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservGamme)
+            return reservGamme
 
         elif selecGamme == "MONOSPACE":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservGamme = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservGamme)
+            return reservGamme
 
         elif selecGamme == "SPORTIVE":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservGamme = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservGamme)
+            return reservGamme
 
         elif selecGamme == "ELECTRIQUE":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservGamme = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservGamme)
+            return reservGamme
 
         elif selecGamme == "BENNE":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservGamme = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservGamme)
+            return reservGamme
 
         elif selecGamme == "3 A 5":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservGamme = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservGamme)
+            return reservGamme
 
         elif selecGamme == "6 A 10":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservGamme = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservGamme)
+            return reservGamme
 
         elif selecGamme == "11 A 15":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservGamme = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservGamme)
+            return reservGamme
 
         elif selecGamme == "20 A 25":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservGamme = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservGamme)
+            return reservGamme
 
         else:
-            reserv = ""
+            reservGamme = ""
             vehiculeInfo.delete("1.0", "end")
             vehiculeInfo.insert(tk.END, presetVehicule.format("", "", "", "", "", "", "", "", "", "", ""))
-            return reserv
+            return reservGamme
 
     def selecModel(event):
         """
@@ -249,58 +249,58 @@ def AjoutVehi_Page(master):
             return reserv
 
         elif select == "FERRARI":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
+            reservModel = presetVehicule.format("a","z","e","r","t","y", id2,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservModel)
+            return reservModel
 
         elif select == "VOLKSWAGEN":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservModel = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservModel)
+            return reservModel
 
         elif select == "RENAULT":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservModel = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservModel)
+            return reservModel
 
         elif select == "MERCEDES":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservModel = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservModel)
+            return reservModel
 
         elif select == "PORSCHE":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservModel = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservModel)
+            return reservModel
 
         elif select == "AUDI":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservModel = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservModel)
+            return reservModel
 
         elif select == "TESLA":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservModel = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservModel)
+            return reservModel
 
         elif select == "IVECO":
-            reserv = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
+            reservModel = presetVehicule.format("a","z","e","r","t","y", id3,"u","i","o","p")
             vehiculeInfo.delete("1.0", "end")
-            vehiculeInfo.insert(tk.END, reserv)
-            return reserv
+            vehiculeInfo.insert(tk.END, reservModel)
+            return reservModel
 
         else:
-            reserv = ""
+            reservModel = ""
             vehiculeInfo.delete("1.0", "end")
             vehiculeInfo.insert(tk.END, presetVehicule.format("", "", "", "", "", "", "", "", "", "", ""))
-            return reserv
+            return reservModel
 
 
 
