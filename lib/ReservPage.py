@@ -15,3 +15,4 @@ def Reserv_Page(master):
     app.transient(master)
     app.resizable(False, False)
     app.title("Réservation")
+
