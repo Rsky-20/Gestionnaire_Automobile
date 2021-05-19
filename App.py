@@ -58,14 +58,18 @@ class ToolBar:
         menubar = Menu(self.root)
 
         menu1 = Menu(menubar, tearoff=0)
-        menu1.add_command(label="Importer base de donnée", command=0)
-        menu1.add_command(label="Exporter base de donnée", command=lambda: EIData.Export_Page(self.root))
+        menu1.add_command(label="Modifier BDD Grille tarifaire [Not_Finished]", command=0)
+        menu1.add_command(label="Modifier BDD véhicule [Not_Finished]", command=0)
+        menu1.add_command(label="Modifier BDD client [Not_Finished]", command=0)
+        menu1.add_separator()
+        menu1.add_command(label="Importer base de donnée [Not_Finished]", command=0)
+        menu1.add_command(label="Exporter base de donnée [Not_Finished]", command=lambda: EIData.Export_Page(self.root))
         menu1.add_separator()
         menu1.add_command(label="Quitter", command=self.QuitApp)
         menubar.add_cascade(label="Fichier", menu=menu1)
 
         menu2 = Menu(menubar, tearoff=0)
-        menu2.add_command(label="Grille Tariffaires", command=lambda: gt.run(self.root))#self.GrilleTarrifaires)
+        menu2.add_command(label="Grille Tariffaires", command=lambda: gt.run(self.root))
         menu2.add_command(label="Véhicules", command=lambda: self.Vehicules)
         menu2.add_command(label="Clients", command=lambda: self.Clients)
         menubar.add_cascade(label="Informations", menu=menu2)
@@ -85,7 +89,10 @@ class ToolBar:
 
         :return:
         """
-        resp = messagebox.askokcancel(title="Voulez-vous quittez l'application ?")
+        MessageBox = """
+        Voulez-vous quittez l'application ?
+        """
+        resp = messagebox.askokcancel(title="Quitter Lock'Auto", message=MessageBox)
         if resp == True:
             DT.enregistrer_json(DT.dfc, "./data/clients.json")
             DT.enregistrer_json(DT.dft, "./data/tarifs.json")
