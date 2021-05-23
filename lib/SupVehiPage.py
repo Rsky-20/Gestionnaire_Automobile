@@ -5,8 +5,9 @@ import lib.DataTool as DT
 def valide(idVehicule, app):
 
     MsgboxText = """
-       ID du véhicule à supprimer : {}
-       """.format(idVehicule)
+/!\ Attention cette opération sera définitif /!\ 
+ID du véhicule à supprimer : {}
+    """.format(idVehicule)
     resp = messagebox.askokcancel(title="Voulez-vous supprimer ce véhicule ?", message=MsgboxText)
 
     if resp == True:
@@ -29,10 +30,10 @@ def sup_vehi_page(master):
     app.attributes("-toolwindow", 1)# Supprime les boutons Réduire/Agrandir
     app.transient(master)
     app.resizable(False, False)
-    app.title("Suupression Véhicle")
+    app.title("Supression Véhicle")
 
     varID = tk.StringVar()
-    tk.LabelFrame(app, text="Nom").place(relx=0.05, rely=0.045, relheight=0.09, relwidth=0.2)
+    tk.LabelFrame(app, text="Id du Véhicule à supprimer").place(relx=0.05, rely=0.045, relheight=0.09, relwidth=0.2)
     tk.Entry(app, width=14, textvariable=varID).place(relx=0.06, rely=0.07, relheight=0.05, relwidth=0.18)
 
     btnValide = tk.Button(app, text='Valider',
