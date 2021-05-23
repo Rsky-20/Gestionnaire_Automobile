@@ -46,7 +46,7 @@ def reserv_page(master):
 
     app = tk.Toplevel(master)
     app.geometry('920x640+500+125')
-    app.attributes("-toolwindow", 1)# Supprime les boutons Réduire/Agrandir
+    app.attributes("-toolwindow", 1)  # Supprime les boutons Réduire/Agrandir
     app.transient(master)
     app.resizable(False, False)
     app.title("Réservation")
@@ -114,6 +114,9 @@ def reserv_page(master):
     userInfo = tk.Text(label)
     userInfo.insert(tk.END,presetReservation.format("", "", "", "", "", "", "", "", "", "", ""))
     userInfo.place(relx=0.5, rely=0.1, relheight=0.6, relwidth=0.4)
+    
+    assuranceBouton = tk.Checkbutton(app, text="Voulez vous souscrire à une assurance ?")
+    assuranceBouton.place()
     
     BtnValide = tk.Button(label, text='Valider', command=lambda: valide(0, app))
     BtnValide.place(relx=0.3, rely=0.8, relheight=0.05, relwidth=0.4)

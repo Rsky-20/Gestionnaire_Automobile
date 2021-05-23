@@ -37,10 +37,11 @@ import lib.DataTool as DT
 import lib.AboutPage as AbP
 import lib.AjoutVehiPage as AVP
 import lib.AnnulPage as AnP
+import lib.FinLocPage as FP
 import lib.ReservPage as RP
-import lib.SupUserPage as SUP
+import lib.SupClientPage as SCP
 import lib.SupVehiPage as SVP
-import lib.UserPage as UP
+import lib.ClientPage as CP
 import lib.ExpImp_Data as EIData
 import lib.grille_tarifaire as gt
 
@@ -177,26 +178,27 @@ class MainApp:
         self.banner.place(relx=0.001, rely=0.01,
                           relwidth=0.25, relheight=0.988)
 
-        tk.Button(self.banner, text='USER',
-            command=lambda: UP.user_page(self.root),
+        tk.Button(self.banner, text='CLIENT',
+            command=lambda: CP.client_page(self.root),
                 bg="lightgrey").place(relx=0.3,
                     rely=0.2, relheight=0.05, relwidth=0.4)
         tk.Button(self.banner, text='RESERVATION',
                   command=lambda: RP.reserv_page(self.root),
                   bg="lightgrey").place(relx=0.3, rely=0.3,
                   relheight=0.05, relwidth=0.4)
-        tk.Button(self.banner, text='ANNULATION',
-                                    command=lambda: AnP.annul_page(self.root), 
+        tk.Button(self.banner, text='TERMINER Location',
+                                    command=lambda: FP.fin_loc_page(self.root), 
                                     bg="lightgrey").place(
                                         relx=0.3, rely=0.4, relheight=0.05,
                                         relwidth=0.4)
+                                    
         self.admin = tk.Button(self.banner, text='ADMIN',
         command=self.admin, bg="lightgrey").place(relx=0.3, rely=0.55,
         relheight=0.05, relwidth=0.4)
 
         self.listeAdmin = ["Selectionner une action", "Ajout Véhicule",
-        "Suppression Véhicule",
-                           "Suppréssion Utilisateur"]
+        "Suppression Véhicule", "Suppréssion Client",
+        "Annulation d'une location"]
         self.listeCombo1 = Combobox(
             self.banner, height=200, width=27, values=self.listeAdmin)
         self.listeCombo1.current(0)
@@ -220,8 +222,10 @@ class MainApp:
             AVP.ajout_vehi_page(self.root)
         elif self.select == "Suppression Véhicule":
             SVP.sup_vehi_page(self.root)
-        elif self.select == "Suppréssion Utilisateur":
-            SUP.sup_user_page(self.root)
+        elif self.select == "Suppréssion Client":
+            SCP.sup_client_page(self.root)
+        elif self.select == "Annulation d'une location":
+            AnP.annul_page(self.root)
 
 # ------ Run & Start server program ------ #
 
