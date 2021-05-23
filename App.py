@@ -44,6 +44,8 @@ import lib.SupVehiPage as SVP
 import lib.ClientPage as CP
 import lib.ExpImp_Data as EIData
 import lib.grille_tarifaire as gt
+import lib.grille_client as gc
+import lib.grille_vehicule as gv
 
 # --------- Class and process --------- #
 
@@ -79,8 +81,8 @@ class ToolBar:
         menu2 = Menu(menubar, tearoff=0)
         menu2.add_command(label="Grille Tariffaires",
                           command=lambda: gt.run(self.root))
-        menu2.add_command(label="Véhicules", command=lambda: self.vehicules)
-        menu2.add_command(label="clients", command=lambda: self.clients)
+        menu2.add_command(label="Véhicules", command=lambda: gv.run(self.root))
+        menu2.add_command(label="clients", command=lambda: gc.run(self.root))
         menubar.add_cascade(label="Informations", menu=menu2)
 
         menu3 = Menu(menubar, tearoff=0)
@@ -111,28 +113,6 @@ class ToolBar:
         else:
             pass
 
-    def grille_tarrifaires(self):
-        MsgboxText = """
-        {}
-        """.format(DT.aff_tarifs())
-        print(MsgboxText)
-        messagebox.showinfo(title="Grille Tarrifaires", message=MsgboxText)
-
-    def vehicules(self):
-        MsgboxText = """
-        {}
-        """.format(0)
-        print(MsgboxText)
-        messagebox.showinfo(title="vehicules", message=MsgboxText)
-
-    def clients(self):
-        MsgboxText = """
-        {}
-        """.format(0)
-        print(MsgboxText)
-        messagebox.showinfo(title="clients", message=MsgboxText)
-
-
 class MainApp:
     """
     [description]
@@ -150,6 +130,12 @@ class MainApp:
         self.root.title("Gestionnaire Automobile - Lock'Auto")
         self.root.geometry('1920x1080')
         self.root.resizable(True, True)
+        
+        self.root.wm_state(newstate="zoomed")
+
+        
+        #self.root.attributes('-fullscreen', 0)
+
 
         # Menu : Fichier
         ToolBar(self.root)
@@ -197,7 +183,7 @@ class MainApp:
         relheight=0.05, relwidth=0.4)
 
         self.listeAdmin = ["Selectionner une action", "Ajout Véhicule",
-        "Suppression Véhicule", "Suppréssion Client",
+        "Suppression Véhicule", "Suppression Client",
         "Annulation d'une location"]
         self.listeCombo1 = Combobox(
             self.banner, height=200, width=27, values=self.listeAdmin)
@@ -222,7 +208,7 @@ class MainApp:
             AVP.ajout_vehi_page(self.root)
         elif self.select == "Suppression Véhicule":
             SVP.sup_vehi_page(self.root)
-        elif self.select == "Suppréssion Client":
+        elif self.select == "Suppression Client":
             SCP.sup_client_page(self.root)
         elif self.select == "Annulation d'une location":
             AnP.annul_page(self.root)

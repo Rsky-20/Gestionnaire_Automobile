@@ -15,15 +15,18 @@ def export_page(master):
     """
 
     app = tk.Toplevel(master)
-    app.geometry('920x640')
+    app.geometry('1148x786+378+45')
     app.w, app.h = app.winfo_screenwidth(), app.winfo_screenheight()
     app.title("Export DataBase")
+    app.transient(master)
+    app.resizable(False, False)
+    app.title("Page User")
 
-    file = StringVar()
+    file = tk.StringVar()
     file.set("Pas de fichier pour l'instant")
 
     # Création d'un Label nommé monAffichage
-    screen = Label(app, textvariable=file, width=70)
+    screen = tk.Label(app, textvariable=file, width=70)
     screen.pack()
 
     # Recherche de l'adresse du fichier-image voulu
@@ -49,7 +52,7 @@ def import_page(master):
     """
 
     app = tk.Toplevel(master)
-    app.geometry('920x640+500+125')
+    app.geometry('1148x786+378+45')
     app.attributes("-toolwindow", 1)# Supprime les boutons Réduire/Agrandir
     app.transient(master)
     app.resizable(False, False)
@@ -59,11 +62,11 @@ def import_page(master):
     # Création de la fenêtre et des objets associés la fenêtre
     # - - - - - - - - - - - - - - - - - -
 
-    file = StringVar()
+    file = tk.StringVar()
     file.set("Pas de fichier pour l'instant")
 
     # Création d'un Label nommé monAffichage
-    screen = Label(app, textvariable=file, width=70)
+    screen = tk.Label(app, textvariable=file, width=70)
     screen.pack()
 
     # Recherche de l'adresse du fichier-image voulu

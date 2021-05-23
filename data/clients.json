@@ -2,7 +2,7 @@
   {
     "nom": "Warford",
     "prenom": "Booker",
-    "age": 36.0,
+    "age": 36,
     "num_permis": 10000,
     "id_vehicule": -1,
     "prix_location": 0
@@ -10,7 +10,7 @@
   {
     "nom": "Yingling",
     "prenom": "Ester",
-    "age": 27.0,
+    "age": 27,
     "num_permis": 10001,
     "id_vehicule": -1,
     "prix_location": 0
@@ -18,7 +18,7 @@
   {
     "nom": "Carnahan",
     "prenom": "Janene",
-    "age": 30.0,
+    "age": 30,
     "num_permis": 10002,
     "id_vehicule": -1,
     "prix_location": 0
@@ -26,7 +26,7 @@
   {
     "nom": "Conry",
     "prenom": "Leora",
-    "age": 23.0,
+    "age": 23,
     "num_permis": 10003,
     "id_vehicule": -1,
     "prix_location": 0
@@ -34,7 +34,7 @@
   {
     "nom": "Moir",
     "prenom": "Sue",
-    "age": 26.0,
+    "age": 26,
     "num_permis": 10004,
     "id_vehicule": -1,
     "prix_location": 0
@@ -42,7 +42,7 @@
   {
     "nom": "Vaudry",
     "prenom": "Pierre",
-    "age": 20.0,
+    "age": 20,
     "num_permis": 10004,
     "id_vehicule": -1,
     "prix_location": 0
