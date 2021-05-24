@@ -3,8 +3,9 @@ from tkinter.ttk import Combobox
 from tkinter import messagebox
 import lib.DataTool as DT
 
-listeUser = ["Selectionner un utilisateur"] + DT.InformationPersonnel(DT.dfc)
+listeUser = ["Selectionner un utilisateur"] + DT.InformationPersonnelClientReserver(DT.dfc) #DT.InformationPersonnel(DT.dfc)
 annul = ""
+id_vehicule = int()
 presetUser = """
 Nom: {}
 Prenom: {}
@@ -24,14 +25,14 @@ prix: {}
 """
 
 
-def valide(annulationInfo, app):
+def valide(id_vehi, annulationInfo, app):
     msgboxText = """
            Réservation à supprimer : {}
            """.format(annulationInfo)
     resp = messagebox.askokcancel(title="Voulez-vous annuler cette réservation ?", message=msgboxText)
 
     if resp == True:
-        DT.annuler_location(DT.dfc, DT.dfv, id)
+        DT.annuler_location(DT.dfc, DT.dfv, id_vehi)
         app.destroy()
     else:
         app.destroy()
@@ -53,14 +54,14 @@ def annul_page(master):
         :return:
         """
 
-        global annul, listeUser
+        global annul, listeUser, id_vehicule
 
         # Obtenir l'élément sélectionné
         select = listeCombo1.get()
         print("Vous avez sélectionné : '", select, "'")
         type(select)
 
-        #print(listeUser)
+        # print(listeUser)
         if select != "Selectionner un utilisateur":
             selectedUser = select.split(" ")
             print(selectedUser)
@@ -68,15 +69,16 @@ def annul_page(master):
             user = DT.aff_client(DT.dfc, selectedUser)
 
             annul = presetUser.format(user[0], user[1], user[3], "r", "t", "y", user[4], "u", "i", "o", user[-1])
+            id_vehicule = user[4]
 
             userInfo.delete("1.0", "end")
             userInfo.insert(tk.END, annul)
-            return user[4]
+            # return user[4]
         else:
             annul = ""
             userInfo.delete("1.0", "end")
             userInfo.insert(tk.END, presetUser.format("", "", "", "", "", "", "", "", "", "", ""))
-            return annul
+            # return annul
 
     app = tk.Toplevel(master)
     app.geometry('1148x786+378+45')
@@ -88,7 +90,7 @@ def annul_page(master):
     label = tk.LabelFrame(app, text="Sélectionnez l'utilisateur dont vous voulez annuler la réservation")
     label.place(relheight=1, relwidth=1)
 
-    BtnValide = tk.Button(label, text='Valider', command=lambda: valide(annul, app))
+    BtnValide = tk.Button(label, text='Valider', command=lambda: valide(id_vehicule, annul, app))
     BtnValide.place(relx=0.3, rely=0.8, relheight=0.05, relwidth=0.4)
 
     listeCombo1 = Combobox(label, height=200, width=27, values=listeUser)

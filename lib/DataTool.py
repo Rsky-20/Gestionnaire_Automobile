@@ -232,4 +232,5 @@ def aff_tarifs():
 
 if __name__=='__main__':
     #TESTS
-    print(aff_vehicule(dfv, 41))
+    #print(aff_vehicule(dfv, 41))
+    print(InformationPersonnelClientReserver(dfc))
