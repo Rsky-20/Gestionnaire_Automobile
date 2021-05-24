@@ -130,6 +130,7 @@ def reserv_page(master):
     
     varAssurance = tk.StringVar()
     assuranceBouton = tk.Checkbutton(app, text="Voulez vous souscrire à une assurance ?", variable=varAssurance)
+    assuranceBouton.deselect()
     assuranceBouton.place(relx=0.1, rely=0.61, relheight=0.09, relwidth=0.2)
     
     # Affiche avec un bouton une liste de véhicule disponible
