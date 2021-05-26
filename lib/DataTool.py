@@ -219,12 +219,10 @@ def InformationPersonnelClientReserver(dfc):
     return(list(dfc[mask]["nom"] + " " + dfc[mask]["prenom"]))
 
 def aff_client(dfc, nom_prenom):
-    mask = (dfc.nom==nom_prenom[0]) & (dfc.prenom==nom_prenom[1])
-    return dfc[mask].values[0].tolist()
+    return dfc.to_string(index=False)
 
 def aff_vehicule(dfv, id):
-    mask = dfv["id"] == id
-    return dfv[mask].values[0].tolist()
+    return dfv.to_string(index=False)
 
 # Afficher le tarif au utilisateur
 def aff_tarifs():
