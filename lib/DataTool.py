@@ -237,12 +237,22 @@ def aff_vehicule_id(dfv, id):
 def aff_tarifs():
     return dft.to_string(index=False)
 
+def aff_reservation(dfc):
+    """
+    
+    """
+    pass
+
 if __name__=='__main__':
     #TESTS
-    #print(aff_vehicule_id(dfv, 42))
+    print(aff_vehicule_id(dfv, 42))
     #print(InformationPersonnelClientReserver(dfc))
     #print(aff_info_client(dfc, ["Vaudry","Pierre"]))
-    #retirer_vehicule(dfv, 42)
+    retirer_vehicule(dfv, 42)
+    print(aff_vehicule(dfv))
+    #enregistrer_json(dfv, "./test.json")
+    
+    #print(aff_vehicule_id(dfv, 42))
+
     #retirer_client(dfc, 10005)
     #print(aff_info_client(dfc, ["Vaudry","Pierre"]))
-    print(InformationReservation(dfc))
