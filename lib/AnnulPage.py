@@ -66,7 +66,7 @@ def annul_page(master):
             selectedUser = select.split(" ")
             print(selectedUser)
 
-            user = DT.aff_client(DT.dfc, selectedUser)
+            user = DT.aff_info_client(DT.dfc, selectedUser)
 
             annul = presetUser.format(user[0], user[1], user[3], "r", "t", "y", user[4], "u", "i", "o", user[-1])
             id_vehicule = user[4]

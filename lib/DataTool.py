@@ -218,11 +218,20 @@ def InformationPersonnelClientReserver(dfc):
     mask = dfc["id_vehicule"] != -1
     return(list(dfc[mask]["nom"] + " " + dfc[mask]["prenom"]))
 
-def aff_client(dfc, nom_prenom):
+
+def aff_client(dfc):
     return dfc.to_string(index=False)
 
-def aff_vehicule(dfv, id):
+def aff_info_client(dfc, nom_prenom):
+    mask = (dfc.nom==nom_prenom[0]) & (dfc.prenom==nom_prenom[1])
+    return dfc[mask].values[0].tolist()
+
+def aff_vehicule(dfv):
     return dfv.to_string(index=False)
+
+def aff_vehicule_id(dfv, id):
+    mask = dfv["id"] == id
+    return dfv[mask].values[0].tolist()
 
 # Afficher le tarif au utilisateur
 def aff_tarifs():
@@ -230,5 +239,10 @@ def aff_tarifs():
 
 if __name__=='__main__':
     #TESTS
-    #print(aff_vehicule(dfv, 41))
-    print(InformationPersonnelClientReserver(dfc))
+    #print(aff_vehicule_id(dfv, 42))
+    #print(InformationPersonnelClientReserver(dfc))
+    #print(aff_info_client(dfc, ["Vaudry","Pierre"]))
+    #retirer_vehicule(dfv, 42)
+    #retirer_client(dfc, 10005)
+    #print(aff_info_client(dfc, ["Vaudry","Pierre"]))
+    print(InformationReservation(dfc))

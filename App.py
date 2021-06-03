@@ -46,6 +46,7 @@ import lib.ExpImp_Data as EIData
 import lib.grille_tarifaire as gt
 import lib.grille_client as gc
 import lib.grille_vehicule as gv
+import lib.grille_reservation as gr
 
 # --------- Class and process --------- #
 
@@ -75,14 +76,16 @@ class ToolBar:
             label="Exporter base de donnée [Not_Finished]",
             command=lambda: EIData.export_page(self.root))
         menu1.add_separator()
-        menu1.add_command(label="Quitter", command=self.quit_app)
+        menu1.add_command(label="Quitter et Sauvegarder", command=self.quit_app)
         menubar.add_cascade(label="Fichier", menu=menu1)
 
         menu2 = Menu(menubar, tearoff=0)
         menu2.add_command(label="Grille Tariffaires",
                           command=lambda: gt.run(self.root))
-        menu2.add_command(label="Véhicules", command=lambda: gv.run(self.root))
-        menu2.add_command(label="clients", command=lambda: gc.run(self.root))
+        menu2.add_command(label="Grille Véhicules", command=lambda: gv.run(self.root))
+        menu2.add_command(label="Grille Clients", command=lambda: gc.run(self.root))
+        menu2.add_command(label="Réservation actuelle", command=lambda: gr.run(self.root))
+        
         menubar.add_cascade(label="Informations", menu=menu2)
 
         menu3 = Menu(menubar, tearoff=0)

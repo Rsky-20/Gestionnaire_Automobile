@@ -44,7 +44,7 @@
     "prenom": "Pierre",
     "age": 20,
     "num_permis": 10005,
-    "id_vehicule": -1,
+    "id_vehicule": 42,
     "prix_location": 0
   }
 ]
