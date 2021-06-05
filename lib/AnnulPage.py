@@ -81,7 +81,10 @@ def annul_page(master):
             # return annul
 
     app = tk.Toplevel(master)
-    app.geometry('1148x786+378+45')
+    h = app.winfo_screenheight()
+    w = app.winfo_screenwidth()
+    screen = str(round(w*0.748)) +"x" + str(round(h*0.91)) + "+" + str(round(w*0.246)) + "+" + str(round(h*0.052))
+    app.geometry(screen)
     app.attributes("-toolwindow", 1)  # Supprime les boutons Réduire/Agrandir
     app.transient(master)
     app.resizable(False, False)

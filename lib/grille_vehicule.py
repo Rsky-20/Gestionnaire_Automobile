@@ -4,7 +4,10 @@ import lib.DataTool as DT
 def run(master):
     app = tk.Toplevel(master)
     app.title("Grille Véhicule")
-    app.geometry("800x450+500+150")
+    h = app.winfo_screenheight()
+    w = app.winfo_screenwidth()
+    screen = str(round(w*0.6)) +"x" + str(round(h*0.60)) + "+" + str(round(w*0.246)) + "+" + str(round(h*0.052))
+    app.geometry(screen)
     app.attributes("-toolwindow", 1)  # Supprime les boutons Réduire/Agrandir
     app.transient(master)
     app.resizable(False, False)

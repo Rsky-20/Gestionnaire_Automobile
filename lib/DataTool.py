@@ -245,6 +245,12 @@ def aff_reservation(dfc):
 
 if __name__=='__main__':
     #TESTS
-    print(dfc, '\n\n')
+    """print(dfc, '\n\n')
     dfc = retirer_client(dfc, 10005)
-    print(dfc)
+    print(dfc)"""
+    
+    print()
+    print(dfv)
+    num = int("42")
+    retirer_vehicule(dfv,num)
+    print(dfv)

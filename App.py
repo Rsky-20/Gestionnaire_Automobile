@@ -132,10 +132,12 @@ class MainApp:
         # super().__init__()
         self.root = tk.Tk()
         self.root.wm_attributes('-transparentcolor', 'red')
-        self.w = self.root.winfo_screenwidth(),
+        self.w = self.root.winfo_screenwidth()
         self.h = self.root.winfo_screenheight()
         self.root.title("Gestionnaire Automobile - Lock'Auto")
-        self.root.geometry('1920x1080')
+        self.screen = str(self.w)+"x"+str(self.h)
+        print(self.screen)
+        self.root.geometry(self.screen)
         self.root.resizable(True, True)
         
         self.root.wm_state(newstate="zoomed")

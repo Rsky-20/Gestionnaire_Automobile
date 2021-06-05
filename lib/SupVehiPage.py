@@ -11,7 +11,7 @@ ID du véhicule à supprimer : {}
     resp = messagebox.askokcancel(title="Voulez-vous supprimer ce véhicule ?", message=MsgboxText)
 
     if resp == True:
-        DT.retirer_vehicule("./data/vehicules.json", int(idVehicule))
+        DT.dfv = DT.retirer_vehicule(DT.dfv, int(idVehicule))
         app.destroy()
     else:
         app.destroy()
@@ -26,7 +26,10 @@ def sup_vehi_page(master):
     """
 
     app = tk.Toplevel(master)
-    app.geometry('1148x786+378+45')
+    h = app.winfo_screenheight()
+    w = app.winfo_screenwidth()
+    screen = str(round(w*0.748)) +"x" + str(round(h*0.91)) + "+" + str(round(w*0.246)) + "+" + str(round(h*0.052))
+    app.geometry(screen)
     app.attributes("-toolwindow", 1)  # Supprime les boutons Réduire/Agrandir
     app.transient(master)
     app.resizable(False, False)
