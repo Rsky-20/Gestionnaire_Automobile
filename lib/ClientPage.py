@@ -31,7 +31,7 @@ def valide(Nom, Prenom, Age, NumPerm, AdressMail, Tel, app):
         DT.ajouter_client(DT.dfc, Nom, Prenom, Age, NumPerm)
         app.destroy()
     else:
-        app.destroy()
+        #app.destroy()
         pass
 
 

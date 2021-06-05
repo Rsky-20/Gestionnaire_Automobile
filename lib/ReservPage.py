@@ -87,7 +87,7 @@ def reserv_page(master):
             selectedUser = select.split(" ")
             print(selectedUser)
 
-            user = DT.aff_client(DT.dfc, selectedUser)
+            user = DT.aff_info_client(DT.dfc, selectedUser)
 
             annul = presetReservation.format(user[0], user[1], user[3], None, None, None, None, None, None, None, None)
 

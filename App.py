@@ -73,8 +73,14 @@ class ToolBar:
         menu1.add_command(
             label="Importer base de donnée [Not_Finished]", command=0)
         menu1.add_command(
-            label="Exporter base de donnée [Not_Finished]",
-            command=lambda: EIData.export_page(self.root))
+            label="Exporter base de donnée Client",
+            command=lambda: EIData.export_page("client"))
+        menu1.add_command(
+            label="Exporter base de donnée Véhicule",
+            command=lambda: EIData.export_page("vehicule"))
+        menu1.add_command(
+            label="Exporter base de donnée Grille tarification",
+            command=lambda: EIData.export_page("tarif"))
         menu1.add_separator()
         menu1.add_command(label="Quitter et Sauvegarder", command=self.quit_app)
         menubar.add_cascade(label="Fichier", menu=menu1)

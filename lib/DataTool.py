@@ -134,7 +134,7 @@ def export_bdd(df, path_csv):
         path_json : adresse de la base de donnees a exporter
         path : chemin où sauvegarder le fichier
     """
-    df.to_csv(path_csv, sep=';')
+    df.to_csv(path_csv, sep=',')
 
 
 def import_bdd(path_csv, path_json):

@@ -1,11 +1,13 @@
+from os import path
 import tkinter as tk
 from tkinter.filedialog import *  # pour les gestions de fichiers
 from PIL import Image as Img
 from PIL import ImageTk
 import lib.DataTool as DT
+from tkinter import messagebox
 
 
-def export_page(master):
+def export_page(fileToExport):
     """
     [Description]
     Fonction permettant de générer la page Export data.
@@ -13,34 +15,34 @@ def export_page(master):
     :param master: master se réfaire à la page parent
     :return:
     """
+    
+    if fileToExport == "vehicule":
+        DT.export_bdd(DT.dfv, "./data/CSV_export_vehicule.csv")
+        MsgboxText = """
+/!\ La base de donnée {} a été exporté avec succès /!\ 
+    path:../Gestionnaire_Automonile/data/CSV_export_vehicule.csv
+    """.format(fileToExport)
+        messagebox.showwarning(title="Export base de donnée", message=MsgboxText)
+            
+    elif fileToExport == "client":
+        DT.export_bdd(DT.dfc, "./data/CSV_export_client.csv")
+        MsgboxText = """
+/!\ La base de donnée {} a été exporté avec succès /!\ 
+    path:../Gestionnaire_Automonile/data/CSV_export_client.csv 
+    """.format(fileToExport)
+        messagebox.showwarning(title="Export base de donnée", message=MsgboxText)
+            
+    elif fileToExport == "tarif":
+        DT.export_bdd(DT.dft, "./data/CSV_export_tarif.csv")
+        MsgboxText = """
+/!\ La base de donnée {} a été exporté avec succès /!\ 
+    path:../Gestionnaire_Automonile/data/CSV_export_tarif.csv
+    """.format(fileToExport)
+        messagebox.showwarning(title="Export base de donnée", message=MsgboxText)
 
-    app = tk.Toplevel(master)
-    app.geometry('1148x786+378+45')
-    app.w, app.h = app.winfo_screenwidth(), app.winfo_screenheight()
-    app.title("Export DataBase")
-    app.transient(master)
-    app.resizable(False, False)
-    app.title("Page User")
-
-    file = tk.StringVar()
-    file.set("Pas de fichier pour l'instant")
-
-    # Création d'un Label nommé monAffichage
-    screen = tk.Label(app, textvariable=file, width=70)
-    screen.pack()
-
-    # Recherche de l'adresse du fichier-image voulu
-    filename = askopenfilename(title="Importer une BD", filetypes=[('json files', '.json'), ('all files', '.*')])
-
-    # Mise à jour de monFichier
-    file.set(filename)
-    print(filename)
-    type(filename)
-
-    DT.export_bdd(filename, "./data/export.csv")
-
-    app.mainloop()
-
+    else:
+        pass
+    
 
 def import_page(master):
     """
@@ -70,7 +72,7 @@ def import_page(master):
     screen.pack()
 
     # Recherche de l'adresse du fichier-image voulu
-    filename = askopenfilename(title="Importer une BD", filetypes=[('json files', '.json'), ('all files', '.*')])
+    filename = askopenfilename(title="Importer une Base de Donnée", filetypes=[('csv files', '.csv'), ('all files', '.*')])
 
     # Mise à jour de monFichier
     file.set(filename)
