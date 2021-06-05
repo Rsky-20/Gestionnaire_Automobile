@@ -123,7 +123,7 @@ def retirer_vehicule(dfv, id):
     """
 
     mask = dfv['id'] != id
-    dfv = dfv[mask]
+    return(dfv[mask])
 
 
 def export_bdd(df, path_csv):
@@ -171,7 +171,7 @@ def retirer_client(dfc, num_permis):
         num_permis : numéro du permis du client à retirer
     """
     mask = dfc['num_permis'] != num_permis
-    dfc = dfc[mask]
+    return(dfc[mask])
 
 def changer_tarif(dft, gamme, t, prix, assur, caut):
     """
@@ -245,14 +245,6 @@ def aff_reservation(dfc):
 
 if __name__=='__main__':
     #TESTS
-    print(aff_vehicule_id(dfv, 42))
-    #print(InformationPersonnelClientReserver(dfc))
-    #print(aff_info_client(dfc, ["Vaudry","Pierre"]))
-    retirer_vehicule(dfv, 42)
-    print(aff_vehicule(dfv))
-    #enregistrer_json(dfv, "./test.json")
-    
-    #print(aff_vehicule_id(dfv, 42))
-
-    #retirer_client(dfc, 10005)
-    #print(aff_info_client(dfc, ["Vaudry","Pierre"]))
+    print(dfc, '\n\n')
+    dfc = retirer_client(dfc, 10005)
+    print(dfc)
