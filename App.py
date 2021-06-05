@@ -43,6 +43,7 @@ import lib.SupClientPage as SCP
 import lib.SupVehiPage as SVP
 import lib.ClientPage as CP
 import lib.ExpImp_Data as EIData
+import lib.ModifBddPage as MBP
 import lib.grille_tarifaire as gt
 import lib.grille_client as gc
 import lib.grille_vehicule as gv
@@ -64,11 +65,8 @@ class ToolBar:
 
         menu1 = Menu(menubar, tearoff=0)
         menu1.add_command(
-            label="Modifier BDD Grille tarifaire [Not_Finished]", command=0)
-        menu1.add_command(
-            label="Modifier BDD véhicule [Not_Finished]", command=0)
-        menu1.add_command(
-            label="Modifier BDD client [Not_Finished]", command=0)
+            label="Modifier BDD [Grille tarifaire/Grille client/Grille vehicule] [Not_Finished]",
+            command=lambda: MBP.modif_bdd_page(self.root))
         menu1.add_separator()
         menu1.add_command(
             label="Importer base de donnée [Not_Finished]", command=0)

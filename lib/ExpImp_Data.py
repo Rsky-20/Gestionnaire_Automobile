@@ -1,4 +1,4 @@
-from os import path
+#from os import path
 import tkinter as tk
 from tkinter.filedialog import *  # pour les gestions de fichiers
 from PIL import Image as Img
