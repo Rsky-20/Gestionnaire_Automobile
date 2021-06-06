@@ -197,7 +197,7 @@ def louer(dfv, dfc, num_permis, id, date_debut, date_fin, prix):
 
     dfc.loc[mask, ["id_vehicule", "prix_location"]] = [id, prix]
 
-def calculer_prix(dfv, dft, date_debut, date_fin, gamme):
+def calculer_prix(dfv, dft, date_debut, date_fin, gamme, choix_assu):
     L_debut = date_debut.split('-')
     L_fin = date_fin.split('-')
 
@@ -208,7 +208,10 @@ def calculer_prix(dfv, dft, date_debut, date_fin, gamme):
     mask = (dft.gamme==gamme)
     prix, assurance = int(dft[mask]['prix']), int(dft[mask]['assurance'])
 
-    return (fin-debut).days*(prix+assurance)
+    if choix_assu:
+        return duree*(prix+assurance)
+    else :
+        return duree*prix
 
 #afficher des informations personnelles
 def InformationPersonnel(dfc):
