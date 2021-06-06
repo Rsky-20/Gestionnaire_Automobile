@@ -31,7 +31,9 @@ def valide(num_permis, annulation_info, app):
     else:
     
         msgboxText = """
-            Réservation à supprimer : {}
+Réservation à supprimer : 
+            
+{}
             """.format(annulation_info)
         resp = messagebox.askokcancel(title="Voulez-vous annuler ce client ?", message=msgboxText)
 
@@ -44,7 +46,7 @@ def valide(num_permis, annulation_info, app):
             print(DT.dfc)
             app.destroy()
         else:
-            app.destroy()
+            pass
 
 
 

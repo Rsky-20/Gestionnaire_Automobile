@@ -16,7 +16,7 @@ def valide(nom, prenom, age, num_perm, adress_mail, tel, app):
         app ([type]): [description]
     """    
     
-    if nom or prenom == "" and age or num_perm == 0:
+    if nom == "" or prenom == "" and num_perm != 0:
         msgboxText = """
            Il y a une erreur dans les information renseignées. 
            Merci de bien vouloir les vérifier. 

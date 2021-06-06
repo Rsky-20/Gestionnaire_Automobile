@@ -5,10 +5,12 @@ import lib.DataTool as DT
 
 def valide(id_vehicule, km, app):
     
-    test = DT.km_ok(DT.dfv,id_vehicule,km)
-    print(test)
+    #test = DT.km_ok(DT.dfv,id_vehicule,km)
+    #print(test)
+    print(type(id_vehicule))
+    print(type(km))
     
-    if test:
+    if id_vehicule and km != 0:
         msgboxText = """
            Status de location : terminé ! 
            """

@@ -26,7 +26,7 @@ def valide(id_vehicule, app):
             DT.dfv = DT.retirer_vehicule(DT.dfv, int(idVehicule))
             app.destroy()
         else:
-            app.destroy()
+            pass
 
 
 def sup_vehi_page(master):

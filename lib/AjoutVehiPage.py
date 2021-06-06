@@ -23,7 +23,7 @@ Location: NA (par défault)
 """.format(type_vehicule, marque_vehicule, modele_vehicule, gamme_vehicule,
            carburant_vehicule, km_vehicule)
 
-    if type_vehicule or marque_vehicule or modele_vehicule or gamme_vehicule == "" and carburant_vehicule or km_vehicule == None:
+    if type_vehicule == "" or marque_vehicule == "" or modele_vehicule == "" or gamme_vehicule == "" or carburant_vehicule == "":
         msgboxText = """
            Il y a une erreur dans les information renseignées. 
            Merci de bien vouloir les vérifier. 
@@ -39,7 +39,7 @@ Location: NA (par défault)
                                 gamme_vehicule, carburant_vehicule, km_vehicule)
             app.destroy()
         else:
-            app.destroy()
+            pass
 
 
 

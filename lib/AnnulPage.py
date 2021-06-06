@@ -37,7 +37,9 @@ def valide(id_vehi, annulation_info, app):
     else:
         
         msgboxText = """
-            Réservation à supprimer : {}
+Réservation à annuler :
+
+{}
             """.format(annulation_info)
             
         resp = messagebox.askokcancel(title="Voulez-vous annuler cette réservation ?", message=msgboxText)
@@ -46,7 +48,7 @@ def valide(id_vehi, annulation_info, app):
             DT.annuler_location(DT.dfc, DT.dfv, id_vehi)
             app.destroy()
         else:
-            app.destroy()
+            pass
 
 
 def annul_page(master):

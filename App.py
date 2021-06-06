@@ -7,6 +7,7 @@ Release date: 07/04/2021
 
 [other information]
 Licence: MIT
+Version: GUI_v6.0 / DataTool_v1.8
 
 
 [Description]
@@ -16,6 +17,7 @@ Licence: MIT
 
 [Class]
 
+    ToolBar() -- ToolBar class generate a great toolbar at the top of main screen app
     MainApp() -- main class to make first page and instance all functions
 
 
@@ -95,15 +97,16 @@ class ToolBar:
         menubar.add_cascade(label="Informations", menu=menu2)
 
         menu3 = Menu(menubar, tearoff=0)
-        menu3.add_command(label="A propos",
+        menu3.add_command(label="Bienvenue",
                           command=lambda: WP.welcome_page(self.root))
+        menu3.add_command(label="A propos",
+                          command=lambda: messagebox.showinfo(title="A propos !", message=WP.msgBoxAbout))
         menu3.add_command(label="? Aide ?",
                           command=lambda: 0)
         menubar.add_cascade(label="Aide", menu=menu3)
 
         self.root.config(menu=menubar)
         
-        messagebox.showinfo(title="A propos !", message=msgBoxAbout)
 
     def quit_app(self):
         """
