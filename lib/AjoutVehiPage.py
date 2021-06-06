@@ -4,11 +4,8 @@ from tkinter import messagebox
 import lib.DataTool as DT
 
 type_vehicule = ""
-#marque_vehicule = ""
-#modele_vehicule = ""
 gamme_vehicule = ""
 carburant_vehicule = ""
-#km_vehicule = "" 
 
 def valide(type_vehicule, marque_vehicule, modele_vehicule, gamme_vehicule,
            carburant_vehicule, km_vehicule, app):
@@ -25,14 +22,26 @@ Location: NA (par défault)
 
 """.format(type_vehicule, marque_vehicule, modele_vehicule, gamme_vehicule,
            carburant_vehicule, km_vehicule)
-    resp = messagebox.askokcancel(title="Voulez-vous Ajouter ce véhicules ?", message=MsgboxText)
 
-    if resp == True:
-        DT.ajouter_vehicule(DT.dfv, type_vehicule, marque_vehicule, modele_vehicule,
-                            gamme_vehicule, carburant_vehicule, km_vehicule)
-        app.destroy()
+    if type_vehicule or marque_vehicule or modele_vehicule or gamme_vehicule == "" and carburant_vehicule or km_vehicule == None:
+        msgboxText = """
+           Il y a une erreur dans les information renseignées. 
+           Merci de bien vouloir les vérifier. 
+           """
+        messagebox.showerror(title="ERROR", message=msgboxText)
+    
     else:
-        app.destroy()
+        
+        resp = messagebox.askokcancel(title="Voulez-vous Ajouter ce véhicules ?", message=MsgboxText)
+
+        if resp == True:
+            DT.ajouter_vehicule(DT.dfv, type_vehicule, marque_vehicule, modele_vehicule,
+                                gamme_vehicule, carburant_vehicule, km_vehicule)
+            app.destroy()
+        else:
+            app.destroy()
+
+
 
 def ajout_vehi_page(master):
     """

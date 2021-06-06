@@ -2,19 +2,31 @@ import tkinter as tk
 from tkinter import messagebox
 import lib.DataTool as DT
 
-def valide(idVehicule, app):
-
-    MsgboxText = """
-/!\ Attention cette opération sera définitif /!\ 
-ID du véhicule à supprimer : {}
-    """.format(idVehicule)
-    resp = messagebox.askokcancel(title="Voulez-vous supprimer ce véhicule ?", message=MsgboxText)
-
-    if resp == True:
-        DT.dfv = DT.retirer_vehicule(DT.dfv, int(idVehicule))
-        app.destroy()
+def valide(id_vehicule, app):
+    
+    if id_vehicule == "":
+        
+        msgboxText = """
+           Il y a une erreur dans les information renseignées. 
+           Merci de bien vouloir les vérifier. 
+           """
+           
+        messagebox.showerror(title="ERROR", message=msgboxText)
+        
     else:
-        app.destroy()
+
+        MsgboxText = """
+    /!\ Attention cette opération sera définitif /!\ 
+    ID du véhicule à supprimer : {}
+        """.format(id_vehicule)
+        
+        resp = messagebox.askokcancel(title="Voulez-vous supprimer ce véhicule ?", message=MsgboxText)
+
+        if resp == True:
+            DT.dfv = DT.retirer_vehicule(DT.dfv, int(idVehicule))
+            app.destroy()
+        else:
+            app.destroy()
 
 
 def sup_vehi_page(master):

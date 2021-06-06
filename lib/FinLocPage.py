@@ -4,17 +4,29 @@ from tkinter import messagebox
 import lib.DataTool as DT
 
 def valide(id_vehicule, km, app):
-    msgboxText = """
+    
+    test = DT.km_ok(DT.dfv,id_vehicule,km)
+    print(test)
+    
+    if test:
+        msgboxText = """
            Status de location : terminé ! 
            """
-    resp = messagebox.askokcancel(title="Voulez-vous valider cette oppération ?",
+        resp = messagebox.askokcancel(title="Voulez-vous valider cette oppération ?",
                                   message=msgboxText)
-
-    if resp == True:
-        DT.terminer_location(DT.dfc, DT.dfv, id_vehicule, km)
-        app.destroy()
+        if resp == True:
+            DT.terminer_location(DT.dfc, DT.dfv, id_vehicule, km)
+            app.destroy()
+        else:
+            app.destroy()
     else:
-        app.destroy()
+        msgboxText = """
+           Il y a une erreur dans les information renseignées. 
+           Merci de bien vouloir les vérifier. 
+           """
+        messagebox.showerror(title="ERROR", message=msgboxText)
+
+
         
 def fin_loc_page(master):
     """

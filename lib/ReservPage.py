@@ -27,6 +27,14 @@ prix: {}
 
 
 def valide(num_permis, id_vehicule, date_debut, date_fin, assurance, app):
+    
+    if num_permis or id_vehicule == 0 and date_debut or date_fin == "":
+        msgboxText = """
+           Il y a une erreur dans les information renseignées. 
+           Merci de bien vouloir les vérifier. 
+           """
+        messagebox.showerror(title="ERROR", message=msgboxText)
+    
     msgboxText = """
            Information de Réservation : 
            Numéro de permis client : {}

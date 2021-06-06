@@ -25,17 +25,28 @@ prix: {}
 """
 
 
-def valide(id_vehi, annulationInfo, app):
-    msgboxText = """
-           Réservation à supprimer : {}
-           """.format(annulationInfo)
-    resp = messagebox.askokcancel(title="Voulez-vous annuler cette réservation ?", message=msgboxText)
-
-    if resp == True:
-        DT.annuler_location(DT.dfc, DT.dfv, id_vehi)
-        app.destroy()
+def valide(id_vehi, annulation_info, app):
+    
+    if id_vehi == 0:
+        msgboxText = """
+           Il y a une erreur dans les information renseignées. 
+           Merci de bien vouloir les vérifier. 
+           """
+        messagebox.showerror(title="ERROR", message=msgboxText)
+        
     else:
-        app.destroy()
+        
+        msgboxText = """
+            Réservation à supprimer : {}
+            """.format(annulation_info)
+            
+        resp = messagebox.askokcancel(title="Voulez-vous annuler cette réservation ?", message=msgboxText)
+
+        if resp == True:
+            DT.annuler_location(DT.dfc, DT.dfv, id_vehi)
+            app.destroy()
+        else:
+            app.destroy()
 
 
 def annul_page(master):

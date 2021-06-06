@@ -17,22 +17,34 @@ Email: {}
 """
 
 
-def valide(numPermis, annulationInfo, app):
-    msgboxText = """
-           Réservation à supprimer : {}
-           """.format(annulationInfo)
-    resp = messagebox.askokcancel(title="Voulez-vous annuler ce client ?", message=msgboxText)
-
-    if resp == True:
-        print(type(numPermis))
-        print(numPermis)
-        print()
-        print(DT.dfc)
-        DT.dfc = DT.retirer_client(DT.dfc, numPermis)
-        print(DT.dfc)
-        app.destroy()
+def valide(num_permis, annulation_info, app):
+    
+    if annulation_info == "":
+        
+        msgboxText = """
+           Il y a une erreur dans les information renseignées. 
+           Merci de bien vouloir les vérifier. 
+           """
+           
+        messagebox.showerror(title="ERROR", message=msgboxText)
+        
     else:
-        app.destroy()
+    
+        msgboxText = """
+            Réservation à supprimer : {}
+            """.format(annulation_info)
+        resp = messagebox.askokcancel(title="Voulez-vous annuler ce client ?", message=msgboxText)
+
+        if resp == True:
+            print(type(numPermis))
+            print(numPermis)
+            print()
+            print(DT.dfc)
+            DT.dfc = DT.retirer_client(DT.dfc, numPermis)
+            print(DT.dfc)
+            app.destroy()
+        else:
+            app.destroy()
 
 
 
