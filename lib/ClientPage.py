@@ -3,36 +3,47 @@ from tkinter import messagebox
 import lib.DataTool as DT
 
 
-def valide(Nom, Prenom, Age, NumPerm, AdressMail, Tel, app):
-    """
+def valide(nom, prenom, age, num_perm, adress_mail, tel, app):
+    """[summary]
 
-    :param Nom:
-    :param Prenom:
-    :param Age:
-    :param NumPerm:
-    :param AdressMail:
-    :param Tel:
-    :return:
-    """
-    print(type(Nom),type(Prenom),type(Age),type(NumPerm))
-
-    msgboxText = """
-    - Nom : {}
-    - Prénom : {}
-    - Age : {}
-    - Numero de permis : {}
-    - Numero de telephone : {}
-    - Adresse mail : {}
-    """.format(Nom, Prenom, Age, int(NumPerm), AdressMail, Tel)
-    resp = messagebox.askokcancel(
-        title="Voulez-vous rajouter cet utilisateur ?", message=msgboxText)
-
-    if resp:
-        DT.ajouter_client(DT.dfc, Nom, Prenom, Age, NumPerm)
-        app.destroy()
+    Args:
+        nom ([type]): [description]
+        prenom ([type]): [description]
+        age ([type]): [description]
+        num_perm ([type]): [description]
+        adress_mail ([type]): [description]
+        tel ([type]): [description]
+        app ([type]): [description]
+    """    
+    
+    if nom == "" or prenom == "" and num_perm != 0:
+        msgboxText = """
+           Il y a une erreur dans les information renseignées. 
+           Merci de bien vouloir les vérifier. 
+           """
+        messagebox.showerror(title="ERROR", message=msgboxText)
+        
+        
     else:
-        #app.destroy()
-        pass
+        
+        msgboxText = """
+        - Nom : {}
+        - Prénom : {}
+        - Age : {}
+        - Numero de permis : {}
+        - Numero de telephone : {}
+        - Adresse mail : {}
+        """.format(nom, prenom, age, int(num_perm), adress_mail, tel)
+        
+        resp = messagebox.askokcancel(
+            title="Voulez-vous rajouter cet utilisateur ?", message=msgboxText)
+
+        if resp:
+            DT.ajouter_client(DT.dfc, nom, prenom, age, num_perm)
+            app.destroy()
+        else:
+            #app.destroy()
+            pass
 
 
 def client_page(master):

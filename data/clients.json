@@ -45,6 +45,7 @@
     "age": 20,
     "num_permis": 10005,
     "id_vehicule": 42,
-    "prix_location": 0
+    "prix_location": 10000
   }
 ]
+

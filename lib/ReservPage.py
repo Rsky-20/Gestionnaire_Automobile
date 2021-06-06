@@ -27,7 +27,16 @@ prix: {}
 
 
 def valide(num_permis, id_vehicule, date_debut, date_fin, assurance, app):
-    msgboxText = """
+    
+    if num_permis == 0 or id_vehicule == 0 and date_debut == "" or date_fin == "":
+        msgboxText = """
+           Il y a une erreur dans les information renseignées. 
+           Merci de bien vouloir les vérifier. 
+           """
+        messagebox.showerror(title="ERROR", message=msgboxText)
+    
+    else:
+        msgboxText = """
            Information de Réservation : 
            Numéro de permis client : {}
            Id véhicule : {}
@@ -35,22 +44,20 @@ def valide(num_permis, id_vehicule, date_debut, date_fin, assurance, app):
            Date de fin : {}
            Sousciption assurance : {}
            """.format(num_permis, id_vehicule, date_debut, date_fin, assurance)
-    resp = messagebox.askokcancel(title="Voulez-vous annuler cette réservation ?", message=msgboxText)
+        resp = messagebox.askokcancel(title="Voulez-vous annuler cette réservation ?", message=msgboxText)
 
-    if resp == True:
-        
-        gamme = DT.aff_vehicule(DT.dfv, id_vehicule)
-        print(gamme)
-        print(gamme[5])
-        
-        prix = DT.calculer_prix(DT.dfv, DT.dft, date_debut, date_fin, gamme[5])
-        print(prix)
-        
-        DT.louer(DT.dfv, DT.dfc, num_permis, id_vehicule, date_debut, date_fin, prix)
-        DT.aff_client(DT.dfc, selectedUser)
-        app.destroy()
-    else:
-        app.destroy()
+        if resp == True:
+            
+            gamme = DT.aff_vehicule(DT.dfv, id_vehicule)
+            print(gamme)
+            print(gamme[5])
+            
+            prix = DT.calculer_prix(DT.dfv, DT.dft, date_debut, date_fin, gamme[5])
+            print(prix)
+            
+            DT.louer(DT.dfv, DT.dfc, num_permis, id_vehicule, date_debut, date_fin, prix)
+            DT.aff_client(DT.dfc, selectedUser)
+            app.destroy()
 
 def reserv_page(master):
     """

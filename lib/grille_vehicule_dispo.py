@@ -19,7 +19,3 @@ def run(master):
     text.insert(tk.INSERT, DT.vehicules_libres(DT.dfv))
     text.config(state='disable')
     text.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.9)
-    """    
-    defilY = tk.Scrollbar(frame, orient='vertical',
-    command=text.yview)
-    defilY.place(relx=0.9, rely=0.9, sticky='ns')"""
