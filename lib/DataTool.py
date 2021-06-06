@@ -240,20 +240,27 @@ def aff_vehicule_id(dfv, id):
 def aff_tarifs():
     return dft.to_string(index=False)
 
-def aff_reservation(dfc):
-    """
+def aff_reservation(dfc, dfv):
+    index = ['Nom', 'Prenom', "date_debut", "date_fin", "id_vehicule", "gamme", "modele", "type", "prix"]
+    df_loc = pa.DataFrame([], columns=index)
+
+    mask_c = dfc["id_vehicule"] != -1
+    dfc_loc = dfc[mask_c]
+
+    for i in dfc_loc.values.tolist():
+        mask_v = dfv["id"] == i[4]
+        dfv_loc = dfv[mask_v]
+        lv_loc = dfv_loc.values.tolist()[0]
+        data = [i[0], i[1], lv_loc[7], lv_loc[8], lv_loc[0], lv_loc[5], lv_loc[3], lv_loc[1], i[5]]
+        df = pa.DataFrame([data], columns=index)
+
+        df_loc = df_loc.append(df)
     
-    """
-    pass
+    print(df_loc)
+
+
+
 
 if __name__=='__main__':
     #TESTS
-    """print(dfc, '\n\n')
-    dfc = retirer_client(dfc, 10005)
-    print(dfc)"""
-    
-    print()
-    print(dfv)
-    num = int("42")
-    retirer_vehicule(dfv,num)
-    print(dfv)
+    aff_reservation(dfc, dfv)
