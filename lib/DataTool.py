@@ -256,11 +256,11 @@ def aff_reservation(dfc, dfv):
 
         df_loc = df_loc.append(df)
     
-    print(df_loc)
+    return df_loc
 
 
 
 
 if __name__=='__main__':
     #TESTS
-    aff_reservation(dfc, dfv)
+    print(aff_reservation(dfc, dfv))
