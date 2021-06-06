@@ -34,7 +34,7 @@ from tkinter.ttk import Combobox
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import lib.DataTool as DT
-import lib.AboutPage as AbP
+import lib.WelcomePage as WP
 import lib.AjoutVehiPage as AVP
 import lib.AnnulPage as AnP
 import lib.FinLocPage as FP
@@ -48,6 +48,8 @@ import lib.grille_tarifaire as gt
 import lib.grille_client as gc
 import lib.grille_vehicule as gv
 import lib.grille_reservation as gr
+
+
 
 # --------- Class and process --------- #
 
@@ -94,12 +96,14 @@ class ToolBar:
 
         menu3 = Menu(menubar, tearoff=0)
         menu3.add_command(label="A propos",
-                          command=lambda: AbP.about_page(self.root))
+                          command=lambda: WP.welcome_page(self.root))
         menu3.add_command(label="? Aide ?",
                           command=lambda: 0)
         menubar.add_cascade(label="Aide", menu=menu3)
 
         self.root.config(menu=menubar)
+        
+        messagebox.showinfo(title="A propos !", message=msgBoxAbout)
 
     def quit_app(self):
         """
