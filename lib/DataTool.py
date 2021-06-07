@@ -188,6 +188,13 @@ def changer_tarif(dft, gamme, t, prix, assur, caut):
 
     dft.loc[mask, ['prix', 'assurance', 'caution']] = [prix, assur, caut]
 
+def modifier_véhicule(dfv, id, type, mark, mod, carb, gamme, kilo):
+    mask = dfv['id'] == id
+    dfv.loc[mask, ['type', 'marque', 'modele', 'carburant', 'gamme', 'kilometrage']] = [type, mark, mod, carb, gamme, kilo]
+
+def modifier_client(dfc, num, nom, prenom, age):
+    mask = dfc['num_permis'] == num
+    dfc.loc[mask, ['nom', 'prenom', 'age']] = [nom, prenom, age]
 
 def louer(dfv, dfc, num_permis, id, date_debut, date_fin, prix):
     mask = dfv["id"] == id
@@ -263,4 +270,6 @@ def aff_reservation(dfc, dfv):
 
 if __name__=='__main__':
     #TESTS
-    print(aff_reservation(dfc, dfv))
+    print(dfc)
+    modifier_client(dfc, 10006, 'name', 'first', 99)
+    print(dfc)
