@@ -66,14 +66,32 @@ import lib.ModifVehiculePage as MVP
 
 class ToolBar:
     """
-
-    """
+    [summary]
+    ToolBar class make a simple toolbar to dispatch functionalities
+    
+    [Methode]
+    __init__
+    top_menu
+    quit_app
+    """    
 
     def __init__(self, master):
+        """
+        [summary]
+        initiate class
+
+        Args:
+            master (class): tkinter parent page of main app
+        """        
         self.root = master
         self.top_menu()
 
     def top_menu(self):
+        """
+        [summary]
+        generate toolbar on the screen
+        """        
+        
         menubar = Menu(self.root)
 
         menu1 = Menu(menubar, tearoff=0)
@@ -123,10 +141,10 @@ class ToolBar:
 
     def quit_app(self):
         """
-        [description]
-
-        :return:
-        """
+        [summary]
+        a simple function to stop and save programme
+        """        
+        
         MessageBox = """
         Voulez-vous quittez l'application ?
         """
@@ -143,13 +161,23 @@ class ToolBar:
 class MainApp:
     """
     [description]
-    MainApp est la class permettant de générer,
-    charger et instancier la base du programme de gestion.
-    Cette class contient la base graphique.
+    MainApp is the class for generating,
+    load and instantiate the base of the management program.
+    This class contains the graphical base.
+    
+    [Methode]
+    __init__
+    widgets
+    admin
     """
 
     def __init__(self):
-        # super().__init__()
+        """
+        [summary]
+        initiate class
+        """        
+
+        # Generate the main page with sitting
         self.root = tk.Tk()
         self.root.wm_attributes('-transparentcolor', 'red')
         self.w = self.root.winfo_screenwidth()
@@ -162,11 +190,11 @@ class MainApp:
         
         self.root.wm_state(newstate="zoomed")
 
-        
+        # Fullscreen mode
         #self.root.attributes('-fullscreen', 0)
 
 
-        # Menu : Fichier
+        # Menu : 
         ToolBar(self.root)
 
         # Background image
@@ -183,16 +211,18 @@ class MainApp:
     def widgets(self):
         """
         [description]
-        Function contenant tout les élément de la page principale du programme.
-        Cette fonction rassemble tout les boutons et object d'interraction.
+        Function containing all the elements of the main page of the program.
+        This function gathers all the buttons and interaction objects.
 
         :return:
         """
 
+        # Banner 
         self.banner = tk.Frame(self.root, bg="#0d0d0d")
         self.banner.place(relx=0.001, rely=0.01,
                           relwidth=0.25, relheight=0.988)
-
+        
+        # Button of main functionnalities 
         tk.Button(self.banner, text='CLIENT',
             command=lambda: CP.client_page(self.root),
                 bg="lightgrey").place(relx=0.3,
@@ -206,12 +236,15 @@ class MainApp:
                                     bg="lightgrey").place(
                                         relx=0.3, rely=0.4, relheight=0.05,
                                         relwidth=0.4)
-                                    
-        """tk.Button(self.banner,bg="black", 
-                  command=lambda: ee.easter_egg_page(self.root)).place(
-                      relx=0.3, rely=0.80, relheight=0.05, relwidth=0.4)"""
+                                
                       
         def pointeur(event):
+            """[summary]
+
+            Args:
+                event ([type]): [description]
+            """            
+            
             if event:
                 x,y = event.x,event.y
                 ee.easter_egg_page(x, y, self.root)
@@ -219,7 +252,8 @@ class MainApp:
         self.egg = tk.Label(self.root, bg="#0d0d0d")
         self.egg.place(relx=0.1, rely=0.80, relheight=0.05, relwidth=0.15)
         self.egg.bind("<Button-1>", pointeur)
-                                    
+        
+        # Button ton select the following page to make an action                            
         self.admin = tk.Button(self.banner, text='ADMIN',
         command=self.admin, bg="lightgrey").place(relx=0.3, rely=0.55,
         relheight=0.05, relwidth=0.4)
@@ -243,7 +277,7 @@ class MainApp:
         :return:
         """
 
-        # Obtenir l'élément sélectionné
+        # Get the selected item
         self.select = self.listeCombo1.get()
         print("Vous avez sélectionné : '", self.select, "'")
 

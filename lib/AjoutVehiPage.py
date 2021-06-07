@@ -9,6 +9,20 @@ carburant_vehicule = ""
 
 def valide(type_vehicule, marque_vehicule, modele_vehicule, gamme_vehicule,
            carburant_vehicule, km_vehicule, app):
+    """
+    [summary]
+    
+
+    Args:
+        type_vehicule ([type]): [description]
+        marque_vehicule ([type]): [description]
+        modele_vehicule ([type]): [description]
+        gamme_vehicule ([type]): [description]
+        carburant_vehicule ([type]): [description]
+        km_vehicule ([type]): [description]
+        app ([type]): [description]
+    """    
+    
     MsgboxText = """
 ------------Information véhicule-----------
 
@@ -64,7 +78,7 @@ def ajout_vehi_page(master):
     def type_select(event):
         """
         [description]
-        Fonction permettant de choisir la page à ouvrir parmi un menu déroulant
+        Function to choose the page to open from a drop-down menu
 
         :return:
         """
