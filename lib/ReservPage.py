@@ -5,7 +5,7 @@ import lib.DataTool as DT
 import lib.grille_vehicule_dispo as gvd
 
 listeUser = ["Selectionner un utilisateur"] + DT.InformationPersonnel(DT.dfc)
-reservation = int()
+reservation = None
 selectedUser = []
 presetReservation = """
 ------------Information client-----------
@@ -37,26 +37,32 @@ def valide(num_permis, id_vehicule, date_debut, date_fin, assurance, app):
     
     else:
         msgboxText = """
-           Information de Réservation : 
+           Information de Réservation :
            Numéro de permis client : {}
            Id véhicule : {}
            Date de début : {}
            Date de fin : {}
            Sousciption assurance : {}
-           """.format(num_permis, id_vehicule, date_debut, date_fin, assurance)
+           """.format(reservation, id_vehicule, date_debut, date_fin, assurance)
         resp = messagebox.askokcancel(title="Voulez-vous annuler cette réservation ?", message=msgboxText)
 
+        if assurance == 1:
+            assu = True
+        else:
+            assu = False
+        
         if resp == True:
             
-            gamme = DT.aff_vehicule(DT.dfv, id_vehicule)
+            gamme = DT.aff_vehicule_id(DT.dfv, id_vehicule)
             print(gamme)
-            print(gamme[5])
+            print(gamme[4])
+            print(type(assu))
             
-            prix = DT.calculer_prix(DT.dfv, DT.dft, date_debut, date_fin, gamme[5])
+            prix = DT.calculer_prix(DT.dfv, DT.dft, date_debut, date_fin, gamme[4], assu)
             print(prix)
             
             DT.louer(DT.dfv, DT.dfc, num_permis, id_vehicule, date_debut, date_fin, prix)
-            DT.aff_client(DT.dfc, selectedUser)
+            DT.aff_info_client(DT.dfc, selectedUser)
             app.destroy()
 
 def reserv_page(master):
@@ -133,7 +139,7 @@ def reserv_page(master):
         relx=0.11, rely=0.435, relheight=0.05, relwidth=0.18) 
     
     varDateFin = tk.StringVar()
-    tk.LabelFrame(app, text="Date de début").place(
+    tk.LabelFrame(app, text="Date de fin").place(
         relx=0.1, rely=0.51, relheight=0.09, relwidth=0.2)
     tk.Entry(app, width=14, textvariable=varDateFin).place(
         relx=0.11, rely=0.535, relheight=0.05, relwidth=0.18) 

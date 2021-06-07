@@ -5,10 +5,10 @@ from PIL import Image
 msgBoxAbout = """{}
 
 - createur: Jessy J. | Enora G. | Luc V. | Pierre V.
-- date: Sun Jun 6 15:59:57 2021 +0200
+- date: Mon Jun 7 23:05:34 2021 +0200
 - version : GUI_v5.9 / DataTool_v1.8
 - github: 
-- commit: 3e81f68f871d3d5d766dff0201dc578888f25e37 (HEAD -> main, origin/main, origin/HEAD)
+- commit: 7b1746a40993ad879872854a6af2331ec1a0ee6a (HEAD -> main, origin/main, origin/HEAD)
 - language de programmation: python 3.8
 - liscence: MIT
 """.format("Gestionnaire Automobile - Lock'Auto")
@@ -48,6 +48,5 @@ def welcome_page(master):
     text = tk.Text(app)
     text.configure(font=("Tahoma", 16))
     text.insert(tk.END, message_bienvenue)
-    text.tag_config(underline=1)
     text.configure(state='disabled')
     text.place(relx=0, rely=0, relheight=1, relwidth=1)

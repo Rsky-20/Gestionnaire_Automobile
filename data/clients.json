@@ -38,21 +38,5 @@
     "num_permis": 10004,
     "id_vehicule": -1,
     "prix_location": 0
-  },
-  {
-    "nom": "Vaudry",
-    "prenom": "Pierre",
-    "age": 20,
-    "num_permis": 10005,
-    "id_vehicule": 42,
-    "prix_location": 0
-  },
-  {
-    "nom": "Vierne",
-    "prenom": "Luc",
-    "age": 20,
-    "num_permis": 10006,
-    "id_vehicule": 41,
-    "prix_location": 0
   }
 ]
