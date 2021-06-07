@@ -16,6 +16,6 @@ def run(master):
     frame.place(relwidth=1, relheight=1)
 
     text = tk.Text(frame)
-    text.insert(tk.INSERT, DT.InformationPersonnelClientReserver(DT.dfc))
+    text.insert(tk.INSERT, DT.aff_reservation(DT.dfc, DT.dfv))
     text.config(state='disable')
     text.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.9)

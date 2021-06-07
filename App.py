@@ -35,7 +35,11 @@ from tkinter import *
 from tkinter.ttk import Combobox
 from tkinter import messagebox
 from PIL import Image, ImageTk
+
 import lib.DataTool as DT
+
+# --------- Import module page section --------- #
+
 import lib.WelcomePage as WP
 import lib.AjoutVehiPage as AVP
 import lib.AnnulPage as AnP
@@ -44,12 +48,16 @@ import lib.ReservPage as RP
 import lib.SupClientPage as SCP
 import lib.SupVehiPage as SVP
 import lib.ClientPage as CP
+import lib.easter_egg as ee
 import lib.ExpImp_Data as EIData
 import lib.ModifBddPage as MBP
 import lib.grille_tarifaire as gt
 import lib.grille_client as gc
 import lib.grille_vehicule as gv
 import lib.grille_reservation as gr
+import lib.ModifClientPage as MCP
+import lib.ModifTarifPage as MTP
+import lib.ModifVehiculePage as MVP
 
 
 
@@ -69,7 +77,7 @@ class ToolBar:
 
         menu1 = Menu(menubar, tearoff=0)
         menu1.add_command(
-            label="Modifier BDD [Grille tarifaire/Grille client/Grille vehicule] [Not_Finished]",
+            label="Modifier BDD [Grille tarifaire/Grille client/Grille vehicule]",
             command=lambda: MBP.modif_bdd_page(self.root))
         menu1.add_separator()
         menu1.add_command(
@@ -90,9 +98,12 @@ class ToolBar:
         menu2 = Menu(menubar, tearoff=0)
         menu2.add_command(label="Grille Tariffaires",
                           command=lambda: gt.run(self.root))
-        menu2.add_command(label="Grille Véhicules", command=lambda: gv.run(self.root))
-        menu2.add_command(label="Grille Clients", command=lambda: gc.run(self.root))
-        menu2.add_command(label="Réservation actuelle", command=lambda: gr.run(self.root))
+        menu2.add_command(label="Grille Véhicules",
+                          command=lambda: gv.run(self.root))
+        menu2.add_command(label="Grille Clients",
+                          command=lambda: gc.run(self.root))
+        menu2.add_command(label="Réservation actuelle",
+                          command=lambda: gr.run(self.root))
         
         menubar.add_cascade(label="Informations", menu=menu2)
 
@@ -100,7 +111,8 @@ class ToolBar:
         menu3.add_command(label="Bienvenue",
                           command=lambda: WP.welcome_page(self.root))
         menu3.add_command(label="A propos",
-                          command=lambda: messagebox.showinfo(title="A propos !", message=WP.msgBoxAbout))
+                          command=lambda: messagebox.showinfo(title="A propos !",
+                                                              message=WP.msgBoxAbout))
         menu3.add_command(label="? Aide ?",
                           command=lambda: 0)
         menubar.add_cascade(label="Aide", menu=menu3)
@@ -194,13 +206,27 @@ class MainApp:
                                         relx=0.3, rely=0.4, relheight=0.05,
                                         relwidth=0.4)
                                     
+        """tk.Button(self.banner,bg="black", 
+                  command=lambda: ee.easter_egg_page(self.root)).place(
+                      relx=0.3, rely=0.80, relheight=0.05, relwidth=0.4)"""
+                      
+        def pointeur(event):
+            if event:
+                x,y = event.x,event.y
+                ee.easter_egg_page(x, y, self.root)
+                  
+        self.egg = tk.Label(self.root, bg="#0d0d0d")
+        self.egg.place(relx=0.1, rely=0.80, relheight=0.05, relwidth=0.15)
+        self.egg.bind("<Button-1>", pointeur)
+                                    
         self.admin = tk.Button(self.banner, text='ADMIN',
         command=self.admin, bg="lightgrey").place(relx=0.3, rely=0.55,
         relheight=0.05, relwidth=0.4)
 
         self.listeAdmin = ["Selectionner une action", "Ajout Véhicule",
-        "Suppression Véhicule", "Suppression Client",
-        "Annulation d'une location"]
+                           "Modification Vehicule","Suppression Véhicule",
+                           "Modification Client", "Suppression Client",
+                           "Annulation d'une location", "Modification Tarif"]
         self.listeCombo1 = Combobox(
             self.banner, height=200, width=27, values=self.listeAdmin)
         self.listeCombo1.current(0)
@@ -228,6 +254,13 @@ class MainApp:
             SCP.sup_client_page(self.root)
         elif self.select == "Annulation d'une location":
             AnP.annul_page(self.root)
+        elif self.select == "Modification Vehicule":
+            MVP.modif_veicule_page(self.root)
+        elif self.select == "Modification Client":
+            MCP.modif_client_page(self.root)
+        elif self.select == "Modification Tarif":
+            MTP.modif_tarif_page(self.root)
+
 
 # ------ Run & Start server program ------ #
 

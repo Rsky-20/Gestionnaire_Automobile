@@ -1,17 +1,5 @@
 import tkinter as tk
-from tkinter import *
-from PIL import Image
-
-msgBoxAbout = """{}
-
-- createur: Jessy J. | Enora G. | Luc V. | Pierre V.
-- date: Sun Jun 6 15:59:57 2021 +0200
-- version : GUI_v5.9 / DataTool_v1.8
-- github: 
-- commit: 3e81f68f871d3d5d766dff0201dc578888f25e37 (HEAD -> main, origin/main, origin/HEAD)
-- language de programmation: python 3.8
-- liscence: MIT
-""".format("Gestionnaire Automobile - Lock'Auto")
+import lib.DataTool as DT
 
 def welcome_page(master):
     """
@@ -30,4 +18,4 @@ def welcome_page(master):
     app.attributes("-toolwindow", 1)# Supprime les boutons Réduire/Agrandir
     app.transient(master)
     app.resizable(False, False)
-    app.title("Bienvenue")
+    app.title("A propos")
