@@ -16,7 +16,7 @@ def valide(nom, prenom, age, num_perm, adress_mail, tel, app):
         app ([type]): [description]
     """    
     
-    if nom == "" or prenom == "" and num_perm != 0:
+    if nom == "" or prenom == "" and num_perm == 0:
         msgboxText = """
            Il y a une erreur dans les information renseignées. 
            Merci de bien vouloir les vérifier. 
@@ -27,12 +27,12 @@ def valide(nom, prenom, age, num_perm, adress_mail, tel, app):
     else:
         
         msgboxText = """
-        - Nom : {}
-        - Prénom : {}
-        - Age : {}
-        - Numero de permis : {}
-        - Numero de telephone : {}
-        - Adresse mail : {}
+- Nom : {}
+- Prénom : {}
+- Age : {}
+- Numero de permis : {}
+- Numero de telephone : {}
+- Adresse mail : {}
         """.format(nom, prenom, age, int(num_perm), adress_mail, tel)
         
         resp = messagebox.askokcancel(

@@ -41,6 +41,7 @@ import lib.DataTool as DT
 # --------- Import module page section --------- #
 
 import lib.WelcomePage as WP
+import lib.HelpPage as HP
 import lib.AjoutVehiPage as AVP
 import lib.AnnulPage as AnP
 import lib.FinLocPage as FP
@@ -114,7 +115,7 @@ class ToolBar:
                           command=lambda: messagebox.showinfo(title="A propos !",
                                                               message=WP.msgBoxAbout))
         menu3.add_command(label="? Aide ?",
-                          command=lambda: 0)
+                          command=lambda: HP.welcome_page(self.root))
         menubar.add_cascade(label="Aide", menu=menu3)
 
         self.root.config(menu=menubar)
@@ -255,7 +256,7 @@ class MainApp:
         elif self.select == "Annulation d'une location":
             AnP.annul_page(self.root)
         elif self.select == "Modification Vehicule":
-            MVP.modif_veicule_page(self.root)
+            MVP.modif_vehicule_page(self.root)
         elif self.select == "Modification Client":
             MCP.modif_client_page(self.root)
         elif self.select == "Modification Tarif":

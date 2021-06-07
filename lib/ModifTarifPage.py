@@ -1,5 +1,48 @@
 import tkinter as tk
+from tkinter import messagebox
 import lib.DataTool as DT
+
+
+def valide(gamme, t, prix, assur, caut, app):
+    """[summary]
+
+    Args:
+        gamme ([type]): [description]
+        t ([type]): [description]
+        prix ([type]): [description]
+        assur ([type]): [description]
+        caut ([type]): [description]
+        app ([type]): [description]
+    """    
+    
+    if gamme == "" or t == "" or prix == "" and assur == 0 or caut == 0:
+        msgboxText = """
+           Il y a une erreur dans les information renseignées. 
+           Merci de bien vouloir les vérifier. 
+           """
+        messagebox.showerror(title="ERROR", message=msgboxText)
+        
+        
+    else:
+        
+        msgboxText = """
+- Gamme : {}
+- Type : {}
+- Prix : {}
+- Assurance : {}
+- Caution : {}
+        """.format(gamme, t, prix, assur, caut)
+        
+        resp = messagebox.askokcancel(
+            title="Voulez-vous changer le tarif ?", message=msgboxText)
+
+        if resp:
+            DT.ajouter_client(DT.dft, gamme, t, prix, assur, caut)
+            app.destroy()
+        else:
+            #app.destroy()
+            pass
+
 
 def modif_tarif_page(master):
     """
