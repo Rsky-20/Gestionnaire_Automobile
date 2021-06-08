@@ -50,7 +50,7 @@ Location: NA (par défault)
 
         if resp == True:
             DT.ajouter_vehicule(DT.dfv, type_vehicule, marque_vehicule, modele_vehicule,
-                                gamme_vehicule, carburant_vehicule, km_vehicule)
+                                carburant_vehicule, gamme_vehicule, km_vehicule)
             app.destroy()
         else:
             pass

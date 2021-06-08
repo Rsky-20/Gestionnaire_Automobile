@@ -6,7 +6,7 @@ def run(master):
     app.title("Grille Client")
     h = app.winfo_screenheight()
     w = app.winfo_screenwidth()
-    screen = str(round(w*0.45)) +"x" + str(round(h*0.60)) + "+" + str(round(w*0.246)) + "+" + str(round(h*0.052))
+    screen = str(round(w*0.55)) +"x" + str(round(h*0.60)) + "+" + str(round(w*0.246)) + "+" + str(round(h*0.052))
     app.geometry(screen)
     app.attributes("-toolwindow", 1)  # Supprime les boutons Réduire/Agrandir
     app.transient(master)

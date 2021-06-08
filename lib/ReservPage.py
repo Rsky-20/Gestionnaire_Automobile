@@ -58,7 +58,7 @@ def valide(num_permis, id_vehicule, date_debut, date_fin, assurance, app):
             print(gamme[4])
             print(type(assu))
             
-            prix = DT.calculer_prix(DT.dfv, DT.dft, date_debut, date_fin, gamme[4], assu)
+            prix = DT.calculer_prix(DT.dft, date_debut, date_fin, gamme[5], assu) #
             print(prix)
             
             DT.louer(DT.dfv, DT.dfc, num_permis, id_vehicule, date_debut, date_fin, prix)

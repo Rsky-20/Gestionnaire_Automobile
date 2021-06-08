@@ -449,16 +449,5 @@
     "kilometrage": 231,
     "date_debut": "",
     "date_fin": ""
-  },
-  {
-    "id": 42,
-    "type": "T",
-    "marque": "FIAT",
-    "modele": "PUNTO",
-    "carburant": "MONOSPACE",
-    "gamme": "37000",
-    "kilometrage": "ESSENCE",
-    "date_debut": "",
-    "date_fin": ""
   }
 ]

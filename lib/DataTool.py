@@ -110,7 +110,7 @@ def ajouter_vehicule(dfv, t, mark, mod, carb, gam, km):
 
     id = dfv['id'][len(dfv)-1] + 1
 
-    dfv.loc[dfv.shape[0]] = [id, t, mark, mod, carb, km, gam, '', '']
+    dfv.loc[dfv.shape[0]] = [id, t, mark, mod, carb, gam, km, '', '']
 
 
 def retirer_vehicule(dfv, id):
@@ -204,7 +204,7 @@ def louer(dfv, dfc, num_permis, id, date_debut, date_fin, prix):
 
     dfc.loc[mask, ["id_vehicule", "prix_location"]] = [id, prix]
 
-def calculer_prix(dfv, dft, date_debut, date_fin, gamme, choix_assu):
+def calculer_prix(dft, date_debut, date_fin, gamme, choix_assu):
     L_debut = date_debut.split('-')
     L_fin = date_fin.split('-')
 
@@ -270,6 +270,11 @@ def aff_reservation(dfc, dfv):
 
 if __name__=='__main__':
     #TESTS
-    print(dfc)
+    """print(dfc)
     modifier_client(dfc, 10006, 'name', 'first', 99)
-    print(dfc)
+    print(dfc)"""
+    """#print(dfv)
+    # ajouter_vehicule(dfv, t, mark, mod, carb, gam, km)
+    print(ajouter_vehicule(dfv, "T", "FIAT", "Punto", "ESSENCE", "MONO", 3))
+    print(dfv)"""
+    print(calculer_prix(dft, "04-03-2021", "21-04-2021", "BENNE", True))
