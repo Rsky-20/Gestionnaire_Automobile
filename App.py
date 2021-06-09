@@ -209,7 +209,7 @@ class MainApp:
         self.canvas.place(rely=0.0, relx=0.0, relwidth=1, relheight=1)
         self.canvas.create_image(0, 0, image=self.image, anchor=NW, )
 
-        # self.iconbitmap('./images/téléchargement (9).ico')
+        self.root.iconbitmap('./images/icon.ico')
         self.widgets()
 
         self.root.mainloop()

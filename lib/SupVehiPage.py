@@ -23,7 +23,7 @@ def valide(id_vehicule, app):
         resp = messagebox.askokcancel(title="Voulez-vous supprimer ce véhicule ?", message=MsgboxText)
 
         if resp == True:
-            DT.dfv = DT.retirer_vehicule(DT.dfv, int(idVehicule))
+            DT.dfv = DT.retirer_vehicule(DT.dfv, int(id_vehicule))
             app.destroy()
         else:
             pass
