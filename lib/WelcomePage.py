@@ -5,10 +5,10 @@ from PIL import Image
 msgBoxAbout = """{}
 
 - createur: Jessy J. | Enora G. | Luc V. | Pierre V.
-- date: Mon Jun 7 23:05:34 2021 +0200
+- date: Tue Jun 8 18:45:34 2021 +0200
 - version : GUI_v5.9 / DataTool_v1.8
 - github: 
-- commit: 7b1746a40993ad879872854a6af2331ec1a0ee6a (HEAD -> main, origin/main, origin/HEAD)
+- commit: 15180025c0adfb52d3f539e85145f1dc3d3b77ba (HEAD -> main, origin/main, origin/HEAD)
 - language de programmation: python 3.8
 - liscence: MIT
 """.format("Gestionnaire Automobile - Lock'Auto")

@@ -111,7 +111,8 @@ class ToolBar:
             label="Exporter base de donnée Grille tarification",
             command=lambda: EIData.export_page("tarif"))
         menu1.add_separator()
-        menu1.add_command(label="Quitter et Sauvegarder", command=self.quit_app)
+        menu1.add_command(label="Sauvegarder", command=self.sauvegarde)
+        menu1.add_command(label="Quitter & Sauvegarder", command=self.quit_app)
         menubar.add_cascade(label="Fichier", menu=menu1)
 
         menu2 = Menu(menubar, tearoff=0)
@@ -137,6 +138,11 @@ class ToolBar:
         menubar.add_cascade(label="Aide", menu=menu3)
 
         self.root.config(menu=menubar)
+        
+    def sauvegarde(self):
+        DT.enregistrer_json(DT.dfc, "./data/clients.json")
+        DT.enregistrer_json(DT.dft, "./data/tarifs.json")
+        DT.enregistrer_json(DT.dfv, "./data/vehicules.json")
         
 
     def quit_app(self):

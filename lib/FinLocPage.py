@@ -56,7 +56,7 @@ def fin_loc_page(master):
         relx=0.41, rely=0.27, relheight=0.05, relwidth=0.18)
     
     varKm = tk.IntVar()
-    tk.LabelFrame(app, text="Nombre de kilomètre parcourue").place(
+    tk.LabelFrame(app, text="Nombre de kilomètre parcourus").place(
         relx=0.4, rely=0.345, relheight=0.09, relwidth=0.2)
     tk.Entry(app, width=14, textvariable=varKm).place(
         relx=0.41, rely=0.37, relheight=0.05, relwidth=0.18)
